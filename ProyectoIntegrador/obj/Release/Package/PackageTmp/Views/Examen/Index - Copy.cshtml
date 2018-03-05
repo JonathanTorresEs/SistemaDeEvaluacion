@@ -1,0 +1,178 @@
+﻿@model IEnumerable<ProyectoIntegrador.Models.Examen>
+
+@{
+    Layout = null;
+
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Examenes</title>
+    <link href="~/Content/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/resources/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="~/Content/resources/css/sb-admin.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="w3-content" style="max-width:1200px">
+    <br />
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:150px" id="mySidebar">
+        <div class="w3-container w3-display-container w3-padding-16">
+            <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+            <h3 class="w3-wide"><b>EvalSys</b></h3>
+        </div>
+        <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+            <a href="../Temas/view_temas" class="w3-bar-item w3-button">Temas</a>
+            <a href="../Examen/view_user" class="w3-bar-item w3-button">Examenes</a>
+            <a href="../Alumnoes/users_list" class="w3-bar-item w3-button">Alumnos</a>
+            <a href="../Carreras/Index" class="w3-bar-item w3-button">Carreras</a>
+            <a href="#" class="w3-bar-item w3-button">Resultados</a>
+
+    </nav>
+
+    <!-- Top menu on small screens -->
+    <header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
+        <div class="w3-bar-item w3-padding-24 w3-wide">EvalSys</div>
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    </header>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:150px">
+
+        <!-- Push down content on small screens -->
+        <div class="w3-hide-large" style="margin-top:83px"></div>
+
+        <!-- Top header -->
+        <header class="w3-container w3-xlarge">
+            <p class="w3-left">Examenes</p>
+            <p class="w3-right">
+                <a href="" #>Logout<a />
+            </p>
+        </header>
+
+        <p>Bienvenido Username</p>
+
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-table"></i> Lista de examenes:
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Nombre)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Descripcion)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Tema)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.FechaDeCreacion)
+                                </th>
+                                <th>
+                                    Creado Por:
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Descripcion)
+                                </td>
+                                <td>
+                                    <ul>
+                                        @foreach (var t in item.Tema)
+                                        {
+                                            <li>@Html.DisplayFor(modelItem => t.NombreTema)</li>
+                                        }
+                                    </ul>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FechaDeCreacion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Usuario.Nombre)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.IDExamen }) |
+                                    <!--@Html.ActionLink("Details", "Details", new { id = item.IDExamen }) |-->
+                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IDExamen })
+                                </td>
+                            </tr>
+
+                        }
+
+
+                    </table>
+                    <a class="nav-link" href="Create"><button type="button" class="btn btn-success">Crear examen</button></a>
+                </div>
+            </div>
+
+        </div>
+
+        <script>
+
+            // Accordion
+            function myAccFunc() {
+                var x = document.getElementById("demoAcc");
+                if (x.className.indexOf("w3-show") == -1) {
+                    x.className += " w3-show";
+                } else {
+                    x.className = x.className.replace(" w3-show", "");
+                }
+            }
+
+
+            // Script to open and close sidebar
+            function w3_open() {
+                document.getElementById("mySidebar").style.display = "block";
+                document.getElementById("myOverlay").style.display = "block";
+            }
+
+            function w3_close() {
+                document.getElementById("mySidebar").style.display = "none";
+                document.getElementById("myOverlay").style.display = "none";
+            }
+        </script>
+        <script src="~/Content/resources/vendor/jquery/jquery.min.js"></script>
+        <script src="~/Content/resources/vendor/popper/popper.min.js"></script>
+        <script src="~/Content/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="~/Content/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Page level plugin JavaScript-->
+        <script src="~/Content/resources/vendor/chart.js/Chart.min.js"></script>
+        <script src="~/Content/resources/vendor/datatables/jquery.dataTables.js"></script>
+        <script src="~/Content/resources/vendor/datatables/dataTables.bootstrap4.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="~/Content/resources/js/sb-admin.min.js"></script>
+        <!-- Custom scripts for this page-->
+        <script src="~/Content/resources/js/sb-admin-datatables.min.js"></script>
+        <script src="~/Content/resources/js/sb-admin-charts.min.js"></script>
+
+</body>
+</html>

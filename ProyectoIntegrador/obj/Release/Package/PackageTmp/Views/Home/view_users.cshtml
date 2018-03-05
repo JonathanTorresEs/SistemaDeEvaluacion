@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ProyectoIntegrador.Models.Examen>
+
+@{
+    ViewBag.Title = "view_users";
+}
+
+<h2>view_users</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaDeCreacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaDeCreacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDExamen }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDExamen }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDExamen })
+        </td>
+    </tr>
+}
+
+</table>

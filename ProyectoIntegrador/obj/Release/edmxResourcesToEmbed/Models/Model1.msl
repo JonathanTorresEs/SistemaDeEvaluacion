@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EgelTrainingModelStoreContainer" CdmEntityContainer="EgelTrainingEntities">
+    <EntitySetMapping Name="Alumno">
+      <EntityTypeMapping TypeName="EgelTrainingModel.Alumno">
+        <MappingFragment StoreEntitySet="Alumno">
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+          <ScalarProperty Name="Carrera" ColumnName="Carrera" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carrera">
+      <EntityTypeMapping TypeName="EgelTrainingModel.Carrera">
+        <MappingFragment StoreEntitySet="Carrera">
+          <ScalarProperty Name="NombreLargo" ColumnName="NombreLargo" />
+          <ScalarProperty Name="Siglas" ColumnName="Siglas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Examen">
+      <EntityTypeMapping TypeName="EgelTrainingModel.Examen">
+        <MappingFragment StoreEntitySet="Examen">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FechaDeCreacion" ColumnName="FechaDeCreacion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IDExamen" ColumnName="IDExamen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlanEstudios">
+      <EntityTypeMapping TypeName="EgelTrainingModel.PlanEstudios">
+        <MappingFragment StoreEntitySet="PlanEstudios">
+          <ScalarProperty Name="Plan" ColumnName="Plan" />
+          <ScalarProperty Name="Siglas" ColumnName="Siglas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pregunta">
+      <EntityTypeMapping TypeName="EgelTrainingModel.Pregunta">
+        <MappingFragment StoreEntitySet="Pregunta">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Dificultad" ColumnName="Dificultad" />
+          <ScalarProperty Name="RespuestaCorrecta" ColumnName="RespuestaCorrecta" />
+          <ScalarProperty Name="TextoRespuesta" ColumnName="TextoRespuesta" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+          <ScalarProperty Name="Texto" ColumnName="Texto" />
+          <ScalarProperty Name="IDPregunta" ColumnName="IDPregunta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestionInExam">
+      <EntityTypeMapping TypeName="EgelTrainingModel.QuestionInExam">
+        <MappingFragment StoreEntitySet="QuestionInExam">
+          <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+          <ScalarProperty Name="Respuesta" ColumnName="Respuesta" />
+          <ScalarProperty Name="IDPregunta" ColumnName="IDPregunta" />
+          <ScalarProperty Name="IDExamen" ColumnName="IDExamen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RespuestasErroneas">
+      <EntityTypeMapping TypeName="EgelTrainingModel.RespuestasErroneas">
+        <MappingFragment StoreEntitySet="RespuestasErroneas">
+          <ScalarProperty Name="Explicacion" ColumnName="Explicacion" />
+          <ScalarProperty Name="TextoRespuesta" ColumnName="TextoRespuesta" />
+          <ScalarProperty Name="Opcion" ColumnName="Opcion" />
+          <ScalarProperty Name="ID_Pregunta" ColumnName="ID_Pregunta" />
+          <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="EgelTrainingModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tema">
+      <EntityTypeMapping TypeName="EgelTrainingModel.Tema">
+        <MappingFragment StoreEntitySet="Tema">
+          <ScalarProperty Name="NombreTema" ColumnName="NombreTema" />
+          <ScalarProperty Name="ClaveTema" ColumnName="ClaveTema" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="EgelTrainingModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AlumnoExamen" TypeName="EgelTrainingModel.AlumnoExamen" StoreEntitySet="AlumnoExamen">
+      <EndProperty Name="Examen">
+        <ScalarProperty Name="IDExamen" ColumnName="Examen_IDExamen" />
+      </EndProperty>
+      <EndProperty Name="Alumno">
+        <ScalarProperty Name="Matricula" ColumnName="Alumno_Matricula" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CarreraTieneTema" TypeName="EgelTrainingModel.CarreraTieneTema" StoreEntitySet="CarreraTieneTema">
+      <EndProperty Name="Tema">
+        <ScalarProperty Name="ClaveTema" ColumnName="Tema_ClaveTema" />
+      </EndProperty>
+      <EndProperty Name="Carrera">
+        <ScalarProperty Name="Siglas" ColumnName="Carrera_Siglas" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TemaEstaEnExamen" TypeName="EgelTrainingModel.TemaEstaEnExamen" StoreEntitySet="TemaEstaEnExamen">
+      <EndProperty Name="Tema">
+        <ScalarProperty Name="ClaveTema" ColumnName="Tema_ClaveTema" />
+      </EndProperty>
+      <EndProperty Name="Examen">
+        <ScalarProperty Name="IDExamen" ColumnName="Examen_IDExamen" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TemaTienePregunta" TypeName="EgelTrainingModel.TemaTienePregunta" StoreEntitySet="TemaTienePregunta">
+      <EndProperty Name="Tema">
+        <ScalarProperty Name="ClaveTema" ColumnName="Tema_ClaveTema" />
+      </EndProperty>
+      <EndProperty Name="Pregunta">
+        <ScalarProperty Name="IDPregunta" ColumnName="Pregunta_IDPregunta" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

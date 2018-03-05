@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="50276d29c00948acb628729e00ffcd43" Name="Diagram1" ZoomLevel="80">
+        <EntityTypeShape EntityType="EgelTrainingModel.Alumno" Width="1.5" PointX="6.625" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EgelTrainingModel.Carrera" Width="1.5" PointX="5.375" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EgelTrainingModel.Examen" Width="1.5" PointX="3.375" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EgelTrainingModel.PlanEstudios" Width="1.5" PointX="2.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EgelTrainingModel.Pregunta" Width="1.5" PointX="4.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EgelTrainingModel.QuestionInExam" Width="1.5" PointX="8" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EgelTrainingModel.RespuestasErroneas" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EgelTrainingModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EgelTrainingModel.Tema" Width="1.5" PointX="3.125" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EgelTrainingModel.Usuario" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="EgelTrainingModel.FK_Alumno_Carrera" ManuallyRouted="false" />
+        <AssociationConnector Association="EgelTrainingModel.FK_QuestionInExam_Alumno" ManuallyRouted="false" />
+        <AssociationConnector Association="EgelTrainingModel.FK_PlanEstudios_Carrera" ManuallyRouted="false" />
+        <AssociationConnector Association="EgelTrainingModel.FK_Examen_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="EgelTrainingModel.FK_QuestionInExam_Examen" ManuallyRouted="false" />
+        <AssociationConnector Association="EgelTrainingModel.FK_Pregunta_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="EgelTrainingModel.FK_QuestionInExam_Pregunta" ManuallyRouted="false" />
+        <AssociationConnector Association="EgelTrainingModel.FK_RespuestasErroneas_Pregunta" ManuallyRouted="false" />
+        <AssociationConnector Association="EgelTrainingModel.CarreraTieneTema" ManuallyRouted="false" />
+        <AssociationConnector Association="EgelTrainingModel.TemaEstaEnExamen" ManuallyRouted="false" />
+        <AssociationConnector Association="EgelTrainingModel.TemaTienePregunta" ManuallyRouted="false" />
+        <AssociationConnector Association="EgelTrainingModel.AlumnoExamen" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

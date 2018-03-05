@@ -1,0 +1,139 @@
+﻿@model ProyectoIntegrador.Models.Usuario
+
+@Html.Partial("~/Views/Partial/header.cshtml");
+
+@{
+    Layout = null;
+
+}
+
+<!-- Page Content -->
+
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <div class="row bg-title">
+
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+
+                <h4 class="page-title">Usuario</h4>
+            </div>
+
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+
+                <ol class="breadcrumb">
+
+                    <li><a href="#">Usuarios</a></li>
+
+                    <li class="active">Borrar</li>
+
+                </ol>
+
+            </div>
+
+            <!-- /.col-lg-12 -->
+
+        </div>
+
+        <!-- /row -->
+
+        <div class="row">
+
+            <div class="col-sm-12">
+
+                <div class="white-box">
+
+
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            Estas seguro que quieres borrar eliminar al usuario: <span class="font-bold">@Model.Nombre</span> <span class="font-bold">@Model.ApellidoPaterno</span>?
+                        </div>
+                    </div>
+                    <div class="row m-t-10">
+                        <div class="col-sm-12">
+
+                            @using (Html.BeginForm())
+            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-actions no-color">
+                                    <input type="submit" value="BORRAR" class="btn btn-danger" />
+                                    <a href="../" class="btn btn-default">Regresar</a>
+                                </div>
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        @Html.Partial("~/Views/Partial/footer.cshtml");
+
+
+
+        <h2>Delete</h2>
+
+        <h3>Are you sure you want to delete this?</h3>
+        <div>
+            <h4>Usuario</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nombre)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ApellidoPaterno)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ApellidoPaterno)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ApellidoMaterno)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ApellidoMaterno)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CorreoElectronico)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CorreoElectronico)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PasswordHash)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PasswordHash)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            }
+        </div>

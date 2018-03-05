@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EgelTrainingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Alumno">
+    <Key>
+      <PropertyRef Name="Matricula" />
+    </Key>
+    <Property Name="Matricula" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ApellidoPaterno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ApellidoMaterno" Type="varchar" MaxLength="50" />
+    <Property Name="Carrera" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="CorreoElectronico" Type="varchar" MaxLength="256" />
+    <Property Name="PasswordHash" Type="binary" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="AlumnoExamen">
+    <Key>
+      <PropertyRef Name="Alumno_Matricula" />
+      <PropertyRef Name="Examen_IDExamen" />
+    </Key>
+    <Property Name="Alumno_Matricula" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="Examen_IDExamen" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Carrera">
+    <Key>
+      <PropertyRef Name="Siglas" />
+    </Key>
+    <Property Name="Siglas" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="NombreLargo" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CarreraTieneTema">
+    <Key>
+      <PropertyRef Name="Carrera_Siglas" />
+      <PropertyRef Name="Tema_ClaveTema" />
+    </Key>
+    <Property Name="Carrera_Siglas" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="Tema_ClaveTema" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Examen">
+    <Key>
+      <PropertyRef Name="IDExamen" />
+    </Key>
+    <Property Name="IDExamen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar(max)" />
+    <Property Name="FechaDeCreacion" Type="datetime" Nullable="false" />
+    <Property Name="Id" Type="int" />
+  </EntityType>
+  <EntityType Name="PlanEstudios">
+    <Key>
+      <PropertyRef Name="Siglas" />
+      <PropertyRef Name="Plan" />
+    </Key>
+    <Property Name="Siglas" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="Plan" Type="char" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pregunta">
+    <Key>
+      <PropertyRef Name="IDPregunta" />
+    </Key>
+    <Property Name="IDPregunta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Texto" Type="varchar(max)" Nullable="false" />
+    <Property Name="Imagen" Type="varbinary(max)" />
+    <Property Name="Tipo" Type="smallint" Nullable="false" />
+    <Property Name="TextoRespuesta" Type="varchar(max)" Nullable="false" />
+    <Property Name="RespuestaCorrecta" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Dificultad" Type="smallint" Nullable="false" />
+    <Property Name="Id" Type="int" />
+  </EntityType>
+  <EntityType Name="QuestionInExam">
+    <Key>
+      <PropertyRef Name="IDExamen" />
+      <PropertyRef Name="IDPregunta" />
+      <PropertyRef Name="Matricula" />
+    </Key>
+    <Property Name="IDExamen" Type="int" Nullable="false" />
+    <Property Name="IDPregunta" Type="int" Nullable="false" />
+    <Property Name="Respuesta" Type="char" MaxLength="1" />
+    <Property Name="Matricula" Type="char" MaxLength="9" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RespuestasErroneas">
+    <Key>
+      <PropertyRef Name="Consecutivo" />
+    </Key>
+    <Property Name="Consecutivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Pregunta" Type="int" Nullable="false" />
+    <Property Name="Opcion" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="TextoRespuesta" Type="varchar(max)" Nullable="false" />
+    <Property Name="Explicacion" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tema">
+    <Key>
+      <PropertyRef Name="ClaveTema" />
+    </Key>
+    <Property Name="ClaveTema" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NombreTema" Type="varchar" MaxLength="70" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TemaEstaEnExamen">
+    <Key>
+      <PropertyRef Name="Examen_IDExamen" />
+      <PropertyRef Name="Tema_ClaveTema" />
+    </Key>
+    <Property Name="Examen_IDExamen" Type="int" Nullable="false" />
+    <Property Name="Tema_ClaveTema" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TemaTienePregunta">
+    <Key>
+      <PropertyRef Name="Pregunta_IDPregunta" />
+      <PropertyRef Name="Tema_ClaveTema" />
+    </Key>
+    <Property Name="Pregunta_IDPregunta" Type="int" Nullable="false" />
+    <Property Name="Tema_ClaveTema" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ApellidoPaterno" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ApellidoMaterno" Type="nvarchar" MaxLength="50" />
+    <Property Name="CorreoElectronico" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordHash" Type="binary" MaxLength="64" />
+  </EntityType>
+  <Association Name="FK_Alumno_Carrera">
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="1" />
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrera">
+        <PropertyRef Name="Siglas" />
+      </Principal>
+      <Dependent Role="Alumno">
+        <PropertyRef Name="Carrera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlumnoExamen_Alumno">
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="1" />
+    <End Role="AlumnoExamen" Type="Self.AlumnoExamen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumno">
+        <PropertyRef Name="Matricula" />
+      </Principal>
+      <Dependent Role="AlumnoExamen">
+        <PropertyRef Name="Alumno_Matricula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlumnoExamen_Examen">
+    <End Role="Examen" Type="Self.Examen" Multiplicity="1" />
+    <End Role="AlumnoExamen" Type="Self.AlumnoExamen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Examen">
+        <PropertyRef Name="IDExamen" />
+      </Principal>
+      <Dependent Role="AlumnoExamen">
+        <PropertyRef Name="Examen_IDExamen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CarreraTieneTema_Carrera">
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="1" />
+    <End Role="CarreraTieneTema" Type="Self.CarreraTieneTema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrera">
+        <PropertyRef Name="Siglas" />
+      </Principal>
+      <Dependent Role="CarreraTieneTema">
+        <PropertyRef Name="Carrera_Siglas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CarreraTieneTema_Tema">
+    <End Role="Tema" Type="Self.Tema" Multiplicity="1" />
+    <End Role="CarreraTieneTema" Type="Self.CarreraTieneTema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tema">
+        <PropertyRef Name="ClaveTema" />
+      </Principal>
+      <Dependent Role="CarreraTieneTema">
+        <PropertyRef Name="Tema_ClaveTema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Examen_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Examen" Type="Self.Examen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Examen">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlanEstudios_Carrera">
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="1" />
+    <End Role="PlanEstudios" Type="Self.PlanEstudios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrera">
+        <PropertyRef Name="Siglas" />
+      </Principal>
+      <Dependent Role="PlanEstudios">
+        <PropertyRef Name="Siglas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pregunta_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Pregunta" Type="Self.Pregunta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pregunta">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuestionInExam_Alumno">
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="1" />
+    <End Role="QuestionInExam" Type="Self.QuestionInExam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumno">
+        <PropertyRef Name="Matricula" />
+      </Principal>
+      <Dependent Role="QuestionInExam">
+        <PropertyRef Name="Matricula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuestionInExam_Examen">
+    <End Role="Examen" Type="Self.Examen" Multiplicity="1" />
+    <End Role="QuestionInExam" Type="Self.QuestionInExam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Examen">
+        <PropertyRef Name="IDExamen" />
+      </Principal>
+      <Dependent Role="QuestionInExam">
+        <PropertyRef Name="IDExamen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuestionInExam_Pregunta">
+    <End Role="Pregunta" Type="Self.Pregunta" Multiplicity="1" />
+    <End Role="QuestionInExam" Type="Self.QuestionInExam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pregunta">
+        <PropertyRef Name="IDPregunta" />
+      </Principal>
+      <Dependent Role="QuestionInExam">
+        <PropertyRef Name="IDPregunta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RespuestasErroneas_Pregunta">
+    <End Role="Pregunta" Type="Self.Pregunta" Multiplicity="1" />
+    <End Role="RespuestasErroneas" Type="Self.RespuestasErroneas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pregunta">
+        <PropertyRef Name="IDPregunta" />
+      </Principal>
+      <Dependent Role="RespuestasErroneas">
+        <PropertyRef Name="ID_Pregunta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TemaEstaEnExamen_Examen">
+    <End Role="Examen" Type="Self.Examen" Multiplicity="1" />
+    <End Role="TemaEstaEnExamen" Type="Self.TemaEstaEnExamen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Examen">
+        <PropertyRef Name="IDExamen" />
+      </Principal>
+      <Dependent Role="TemaEstaEnExamen">
+        <PropertyRef Name="Examen_IDExamen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TemaEstaEnExamen_Tema">
+    <End Role="Tema" Type="Self.Tema" Multiplicity="1" />
+    <End Role="TemaEstaEnExamen" Type="Self.TemaEstaEnExamen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tema">
+        <PropertyRef Name="ClaveTema" />
+      </Principal>
+      <Dependent Role="TemaEstaEnExamen">
+        <PropertyRef Name="Tema_ClaveTema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TemaTienePregunta_Pregunta">
+    <End Role="Pregunta" Type="Self.Pregunta" Multiplicity="1" />
+    <End Role="TemaTienePregunta" Type="Self.TemaTienePregunta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pregunta">
+        <PropertyRef Name="IDPregunta" />
+      </Principal>
+      <Dependent Role="TemaTienePregunta">
+        <PropertyRef Name="Pregunta_IDPregunta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TemaTienePregunta_Tema">
+    <End Role="Tema" Type="Self.Tema" Multiplicity="1" />
+    <End Role="TemaTienePregunta" Type="Self.TemaTienePregunta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tema">
+        <PropertyRef Name="ClaveTema" />
+      </Principal>
+      <Dependent Role="TemaTienePregunta">
+        <PropertyRef Name="Tema_ClaveTema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EgelTrainingModelStoreContainer">
+    <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AlumnoExamen" EntityType="Self.AlumnoExamen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Carrera" EntityType="Self.Carrera" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CarreraTieneTema" EntityType="Self.CarreraTieneTema" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Examen" EntityType="Self.Examen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlanEstudios" EntityType="Self.PlanEstudios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pregunta" EntityType="Self.Pregunta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuestionInExam" EntityType="Self.QuestionInExam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RespuestasErroneas" EntityType="Self.RespuestasErroneas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tema" EntityType="Self.Tema" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TemaEstaEnExamen" EntityType="Self.TemaEstaEnExamen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TemaTienePregunta" EntityType="Self.TemaTienePregunta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Alumno_Carrera" Association="Self.FK_Alumno_Carrera">
+      <End Role="Carrera" EntitySet="Carrera" />
+      <End Role="Alumno" EntitySet="Alumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlumnoExamen_Alumno" Association="Self.FK_AlumnoExamen_Alumno">
+      <End Role="Alumno" EntitySet="Alumno" />
+      <End Role="AlumnoExamen" EntitySet="AlumnoExamen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlumnoExamen_Examen" Association="Self.FK_AlumnoExamen_Examen">
+      <End Role="Examen" EntitySet="Examen" />
+      <End Role="AlumnoExamen" EntitySet="AlumnoExamen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CarreraTieneTema_Carrera" Association="Self.FK_CarreraTieneTema_Carrera">
+      <End Role="Carrera" EntitySet="Carrera" />
+      <End Role="CarreraTieneTema" EntitySet="CarreraTieneTema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CarreraTieneTema_Tema" Association="Self.FK_CarreraTieneTema_Tema">
+      <End Role="Tema" EntitySet="Tema" />
+      <End Role="CarreraTieneTema" EntitySet="CarreraTieneTema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Examen_Usuario" Association="Self.FK_Examen_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Examen" EntitySet="Examen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlanEstudios_Carrera" Association="Self.FK_PlanEstudios_Carrera">
+      <End Role="Carrera" EntitySet="Carrera" />
+      <End Role="PlanEstudios" EntitySet="PlanEstudios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pregunta_Usuario" Association="Self.FK_Pregunta_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Pregunta" EntitySet="Pregunta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuestionInExam_Alumno" Association="Self.FK_QuestionInExam_Alumno">
+      <End Role="Alumno" EntitySet="Alumno" />
+      <End Role="QuestionInExam" EntitySet="QuestionInExam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuestionInExam_Examen" Association="Self.FK_QuestionInExam_Examen">
+      <End Role="Examen" EntitySet="Examen" />
+      <End Role="QuestionInExam" EntitySet="QuestionInExam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuestionInExam_Pregunta" Association="Self.FK_QuestionInExam_Pregunta">
+      <End Role="Pregunta" EntitySet="Pregunta" />
+      <End Role="QuestionInExam" EntitySet="QuestionInExam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RespuestasErroneas_Pregunta" Association="Self.FK_RespuestasErroneas_Pregunta">
+      <End Role="Pregunta" EntitySet="Pregunta" />
+      <End Role="RespuestasErroneas" EntitySet="RespuestasErroneas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TemaEstaEnExamen_Examen" Association="Self.FK_TemaEstaEnExamen_Examen">
+      <End Role="Examen" EntitySet="Examen" />
+      <End Role="TemaEstaEnExamen" EntitySet="TemaEstaEnExamen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TemaEstaEnExamen_Tema" Association="Self.FK_TemaEstaEnExamen_Tema">
+      <End Role="Tema" EntitySet="Tema" />
+      <End Role="TemaEstaEnExamen" EntitySet="TemaEstaEnExamen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TemaTienePregunta_Pregunta" Association="Self.FK_TemaTienePregunta_Pregunta">
+      <End Role="Pregunta" EntitySet="Pregunta" />
+      <End Role="TemaTienePregunta" EntitySet="TemaTienePregunta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TemaTienePregunta_Tema" Association="Self.FK_TemaTienePregunta_Tema">
+      <End Role="Tema" EntitySet="Tema" />
+      <End Role="TemaTienePregunta" EntitySet="TemaTienePregunta" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

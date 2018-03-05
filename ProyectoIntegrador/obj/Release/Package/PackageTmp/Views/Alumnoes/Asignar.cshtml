@@ -1,0 +1,112 @@
+﻿@model ProyectoIntegrador.ViewModels.AlumnoExamenes
+
+@{
+    Layout = null;
+
+}
+
+@Html.Partial("~/Views/Partial/header.cshtml");
+
+
+
+
+<!-- Page Content -->
+
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <div class="row bg-title">
+
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+
+                <h4 class="page-title">Asignar</h4>
+            </div>
+
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+
+                <ol class="breadcrumb">
+
+                    <li><a href="#">Alumno</a></li>
+
+                    <li class="active">Asignar</li>
+
+                </ol>
+
+            </div>
+
+            <!-- /.col-lg-12 -->
+
+        </div>
+
+        <!-- /row -->
+
+        <div class="row">
+
+            <div class="col-sm-12">
+
+                <div class="white-box">
+
+
+
+                    <!--<div class="row">
+                        <div class="col-sm-12">
+                            Crear examen:
+                        </div>
+                    </div>-->
+                    <div class="row m-t-10">
+                        <div class="col-sm-12">
+
+                            @using (Html.BeginForm("Asignar","Alumnoes",FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+                                    <h4>Alumno </h4>
+                                    @Model.alumno.Nombre
+                                    @Model.alumno.ApellidoPaterno
+                                    @Model.alumno.Matricula
+                                    <hr />
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">Examenes</label>
+                                        <div class="col-md-8">
+                                            <select class="ui fluid search dropdown" multiple="" name="examenes">
+                                                    @foreach (var item in Model.examenes)
+                                                    {
+                                                        <option value="@(item.Nombre)">@(item.Nombre)</option>
+                                                    }
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <input type="hidden" value="@Model.alumno.Matricula" name="Matricula"/>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Crear" class="btn btn-success" />
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                            <div>
+                                @Html.ActionLink("Back to List", "Index")
+                            </div>
+
+                            @section Scripts {
+                                @Scripts.Render("~/bundles/jqueryval")
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        @Html.Partial("~/Views/Partial/footer.cshtml");

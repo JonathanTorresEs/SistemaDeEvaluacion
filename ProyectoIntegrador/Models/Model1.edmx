@@ -1,0 +1,876 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EgelTrainingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Alumno">
+          <Key>
+            <PropertyRef Name="Matricula" />
+          </Key>
+          <Property Name="Matricula" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="varchar" MaxLength="50" />
+          <Property Name="Carrera" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="CorreoElectronico" Type="varchar" MaxLength="256" />
+          <Property Name="PasswordHash" Type="binary" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="AlumnoExamen">
+          <Key>
+            <PropertyRef Name="Alumno_Matricula" />
+            <PropertyRef Name="Examen_IDExamen" />
+          </Key>
+          <Property Name="Alumno_Matricula" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="Examen_IDExamen" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Carrera">
+          <Key>
+            <PropertyRef Name="Siglas" />
+          </Key>
+          <Property Name="Siglas" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="NombreLargo" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarreraTieneTema">
+          <Key>
+            <PropertyRef Name="Carrera_Siglas" />
+            <PropertyRef Name="Tema_ClaveTema" />
+          </Key>
+          <Property Name="Carrera_Siglas" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Tema_ClaveTema" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Examen">
+          <Key>
+            <PropertyRef Name="IDExamen" />
+          </Key>
+          <Property Name="IDExamen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar(max)" />
+          <Property Name="FechaDeCreacion" Type="datetime" Nullable="false" />
+          <Property Name="Id" Type="int" />
+        </EntityType>
+        <EntityType Name="PlanEstudios">
+          <Key>
+            <PropertyRef Name="Siglas" />
+            <PropertyRef Name="Plan" />
+          </Key>
+          <Property Name="Siglas" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Plan" Type="char" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pregunta">
+          <Key>
+            <PropertyRef Name="IDPregunta" />
+          </Key>
+          <Property Name="IDPregunta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Texto" Type="varchar(max)" Nullable="false" />
+          <Property Name="Imagen" Type="varbinary(max)" />
+          <Property Name="Tipo" Type="smallint" Nullable="false" />
+          <Property Name="TextoRespuesta" Type="varchar(max)" Nullable="false" />
+          <Property Name="RespuestaCorrecta" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Dificultad" Type="smallint" Nullable="false" />
+          <Property Name="Id" Type="int" />
+        </EntityType>
+        <EntityType Name="QuestionInExam">
+          <Key>
+            <PropertyRef Name="IDExamen" />
+            <PropertyRef Name="IDPregunta" />
+            <PropertyRef Name="Matricula" />
+          </Key>
+          <Property Name="IDExamen" Type="int" Nullable="false" />
+          <Property Name="IDPregunta" Type="int" Nullable="false" />
+          <Property Name="Respuesta" Type="char" MaxLength="1" />
+          <Property Name="Matricula" Type="char" MaxLength="9" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RespuestasErroneas">
+          <Key>
+            <PropertyRef Name="Consecutivo" />
+          </Key>
+          <Property Name="Consecutivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Pregunta" Type="int" Nullable="false" />
+          <Property Name="Opcion" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="TextoRespuesta" Type="varchar(max)" Nullable="false" />
+          <Property Name="Explicacion" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tema">
+          <Key>
+            <PropertyRef Name="ClaveTema" />
+          </Key>
+          <Property Name="ClaveTema" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="NombreTema" Type="varchar" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TemaEstaEnExamen">
+          <Key>
+            <PropertyRef Name="Examen_IDExamen" />
+            <PropertyRef Name="Tema_ClaveTema" />
+          </Key>
+          <Property Name="Examen_IDExamen" Type="int" Nullable="false" />
+          <Property Name="Tema_ClaveTema" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TemaTienePregunta">
+          <Key>
+            <PropertyRef Name="Pregunta_IDPregunta" />
+            <PropertyRef Name="Tema_ClaveTema" />
+          </Key>
+          <Property Name="Pregunta_IDPregunta" Type="int" Nullable="false" />
+          <Property Name="Tema_ClaveTema" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="nvarchar" MaxLength="50" />
+          <Property Name="CorreoElectronico" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordHash" Type="binary" MaxLength="64" />
+        </EntityType>
+        <Association Name="FK_Alumno_Carrera">
+          <End Role="Carrera" Type="Self.Carrera" Multiplicity="1" />
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carrera">
+              <PropertyRef Name="Siglas" />
+            </Principal>
+            <Dependent Role="Alumno">
+              <PropertyRef Name="Carrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlumnoExamen_Alumno">
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="1" />
+          <End Role="AlumnoExamen" Type="Self.AlumnoExamen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alumno">
+              <PropertyRef Name="Matricula" />
+            </Principal>
+            <Dependent Role="AlumnoExamen">
+              <PropertyRef Name="Alumno_Matricula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlumnoExamen_Examen">
+          <End Role="Examen" Type="Self.Examen" Multiplicity="1" />
+          <End Role="AlumnoExamen" Type="Self.AlumnoExamen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Examen">
+              <PropertyRef Name="IDExamen" />
+            </Principal>
+            <Dependent Role="AlumnoExamen">
+              <PropertyRef Name="Examen_IDExamen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarreraTieneTema_Carrera">
+          <End Role="Carrera" Type="Self.Carrera" Multiplicity="1" />
+          <End Role="CarreraTieneTema" Type="Self.CarreraTieneTema" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carrera">
+              <PropertyRef Name="Siglas" />
+            </Principal>
+            <Dependent Role="CarreraTieneTema">
+              <PropertyRef Name="Carrera_Siglas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarreraTieneTema_Tema">
+          <End Role="Tema" Type="Self.Tema" Multiplicity="1" />
+          <End Role="CarreraTieneTema" Type="Self.CarreraTieneTema" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tema">
+              <PropertyRef Name="ClaveTema" />
+            </Principal>
+            <Dependent Role="CarreraTieneTema">
+              <PropertyRef Name="Tema_ClaveTema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Examen_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Examen" Type="Self.Examen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Examen">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlanEstudios_Carrera">
+          <End Role="Carrera" Type="Self.Carrera" Multiplicity="1" />
+          <End Role="PlanEstudios" Type="Self.PlanEstudios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carrera">
+              <PropertyRef Name="Siglas" />
+            </Principal>
+            <Dependent Role="PlanEstudios">
+              <PropertyRef Name="Siglas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pregunta_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Pregunta" Type="Self.Pregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pregunta">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuestionInExam_Alumno">
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="1" />
+          <End Role="QuestionInExam" Type="Self.QuestionInExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alumno">
+              <PropertyRef Name="Matricula" />
+            </Principal>
+            <Dependent Role="QuestionInExam">
+              <PropertyRef Name="Matricula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuestionInExam_Examen">
+          <End Role="Examen" Type="Self.Examen" Multiplicity="1" />
+          <End Role="QuestionInExam" Type="Self.QuestionInExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Examen">
+              <PropertyRef Name="IDExamen" />
+            </Principal>
+            <Dependent Role="QuestionInExam">
+              <PropertyRef Name="IDExamen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuestionInExam_Pregunta">
+          <End Role="Pregunta" Type="Self.Pregunta" Multiplicity="1" />
+          <End Role="QuestionInExam" Type="Self.QuestionInExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pregunta">
+              <PropertyRef Name="IDPregunta" />
+            </Principal>
+            <Dependent Role="QuestionInExam">
+              <PropertyRef Name="IDPregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RespuestasErroneas_Pregunta">
+          <End Role="Pregunta" Type="Self.Pregunta" Multiplicity="1" />
+          <End Role="RespuestasErroneas" Type="Self.RespuestasErroneas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pregunta">
+              <PropertyRef Name="IDPregunta" />
+            </Principal>
+            <Dependent Role="RespuestasErroneas">
+              <PropertyRef Name="ID_Pregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TemaEstaEnExamen_Examen">
+          <End Role="Examen" Type="Self.Examen" Multiplicity="1" />
+          <End Role="TemaEstaEnExamen" Type="Self.TemaEstaEnExamen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Examen">
+              <PropertyRef Name="IDExamen" />
+            </Principal>
+            <Dependent Role="TemaEstaEnExamen">
+              <PropertyRef Name="Examen_IDExamen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TemaEstaEnExamen_Tema">
+          <End Role="Tema" Type="Self.Tema" Multiplicity="1" />
+          <End Role="TemaEstaEnExamen" Type="Self.TemaEstaEnExamen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tema">
+              <PropertyRef Name="ClaveTema" />
+            </Principal>
+            <Dependent Role="TemaEstaEnExamen">
+              <PropertyRef Name="Tema_ClaveTema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TemaTienePregunta_Pregunta">
+          <End Role="Pregunta" Type="Self.Pregunta" Multiplicity="1" />
+          <End Role="TemaTienePregunta" Type="Self.TemaTienePregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pregunta">
+              <PropertyRef Name="IDPregunta" />
+            </Principal>
+            <Dependent Role="TemaTienePregunta">
+              <PropertyRef Name="Pregunta_IDPregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TemaTienePregunta_Tema">
+          <End Role="Tema" Type="Self.Tema" Multiplicity="1" />
+          <End Role="TemaTienePregunta" Type="Self.TemaTienePregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tema">
+              <PropertyRef Name="ClaveTema" />
+            </Principal>
+            <Dependent Role="TemaTienePregunta">
+              <PropertyRef Name="Tema_ClaveTema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EgelTrainingModelStoreContainer">
+          <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AlumnoExamen" EntityType="Self.AlumnoExamen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Carrera" EntityType="Self.Carrera" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarreraTieneTema" EntityType="Self.CarreraTieneTema" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Examen" EntityType="Self.Examen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlanEstudios" EntityType="Self.PlanEstudios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pregunta" EntityType="Self.Pregunta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuestionInExam" EntityType="Self.QuestionInExam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RespuestasErroneas" EntityType="Self.RespuestasErroneas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tema" EntityType="Self.Tema" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TemaEstaEnExamen" EntityType="Self.TemaEstaEnExamen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TemaTienePregunta" EntityType="Self.TemaTienePregunta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Alumno_Carrera" Association="Self.FK_Alumno_Carrera">
+            <End Role="Carrera" EntitySet="Carrera" />
+            <End Role="Alumno" EntitySet="Alumno" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlumnoExamen_Alumno" Association="Self.FK_AlumnoExamen_Alumno">
+            <End Role="Alumno" EntitySet="Alumno" />
+            <End Role="AlumnoExamen" EntitySet="AlumnoExamen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlumnoExamen_Examen" Association="Self.FK_AlumnoExamen_Examen">
+            <End Role="Examen" EntitySet="Examen" />
+            <End Role="AlumnoExamen" EntitySet="AlumnoExamen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarreraTieneTema_Carrera" Association="Self.FK_CarreraTieneTema_Carrera">
+            <End Role="Carrera" EntitySet="Carrera" />
+            <End Role="CarreraTieneTema" EntitySet="CarreraTieneTema" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarreraTieneTema_Tema" Association="Self.FK_CarreraTieneTema_Tema">
+            <End Role="Tema" EntitySet="Tema" />
+            <End Role="CarreraTieneTema" EntitySet="CarreraTieneTema" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Examen_Usuario" Association="Self.FK_Examen_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Examen" EntitySet="Examen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlanEstudios_Carrera" Association="Self.FK_PlanEstudios_Carrera">
+            <End Role="Carrera" EntitySet="Carrera" />
+            <End Role="PlanEstudios" EntitySet="PlanEstudios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pregunta_Usuario" Association="Self.FK_Pregunta_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Pregunta" EntitySet="Pregunta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuestionInExam_Alumno" Association="Self.FK_QuestionInExam_Alumno">
+            <End Role="Alumno" EntitySet="Alumno" />
+            <End Role="QuestionInExam" EntitySet="QuestionInExam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuestionInExam_Examen" Association="Self.FK_QuestionInExam_Examen">
+            <End Role="Examen" EntitySet="Examen" />
+            <End Role="QuestionInExam" EntitySet="QuestionInExam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuestionInExam_Pregunta" Association="Self.FK_QuestionInExam_Pregunta">
+            <End Role="Pregunta" EntitySet="Pregunta" />
+            <End Role="QuestionInExam" EntitySet="QuestionInExam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RespuestasErroneas_Pregunta" Association="Self.FK_RespuestasErroneas_Pregunta">
+            <End Role="Pregunta" EntitySet="Pregunta" />
+            <End Role="RespuestasErroneas" EntitySet="RespuestasErroneas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TemaEstaEnExamen_Examen" Association="Self.FK_TemaEstaEnExamen_Examen">
+            <End Role="Examen" EntitySet="Examen" />
+            <End Role="TemaEstaEnExamen" EntitySet="TemaEstaEnExamen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TemaEstaEnExamen_Tema" Association="Self.FK_TemaEstaEnExamen_Tema">
+            <End Role="Tema" EntitySet="Tema" />
+            <End Role="TemaEstaEnExamen" EntitySet="TemaEstaEnExamen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TemaTienePregunta_Pregunta" Association="Self.FK_TemaTienePregunta_Pregunta">
+            <End Role="Pregunta" EntitySet="Pregunta" />
+            <End Role="TemaTienePregunta" EntitySet="TemaTienePregunta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TemaTienePregunta_Tema" Association="Self.FK_TemaTienePregunta_Tema">
+            <End Role="Tema" EntitySet="Tema" />
+            <End Role="TemaTienePregunta" EntitySet="TemaTienePregunta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EgelTrainingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EgelTrainingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Alumno" EntityType="EgelTrainingModel.Alumno" />
+          <EntitySet Name="Carrera" EntityType="EgelTrainingModel.Carrera" />
+          <EntitySet Name="Examen" EntityType="EgelTrainingModel.Examen" />
+          <EntitySet Name="PlanEstudios" EntityType="EgelTrainingModel.PlanEstudios" />
+          <EntitySet Name="Pregunta" EntityType="EgelTrainingModel.Pregunta" />
+          <EntitySet Name="QuestionInExam" EntityType="EgelTrainingModel.QuestionInExam" />
+          <EntitySet Name="RespuestasErroneas" EntityType="EgelTrainingModel.RespuestasErroneas" />
+          <EntitySet Name="sysdiagrams" EntityType="EgelTrainingModel.sysdiagrams" />
+          <EntitySet Name="Tema" EntityType="EgelTrainingModel.Tema" />
+          <EntitySet Name="Usuario" EntityType="EgelTrainingModel.Usuario" />
+          <AssociationSet Name="FK_Alumno_Carrera" Association="EgelTrainingModel.FK_Alumno_Carrera">
+            <End Role="Carrera" EntitySet="Carrera" />
+            <End Role="Alumno" EntitySet="Alumno" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuestionInExam_Alumno" Association="EgelTrainingModel.FK_QuestionInExam_Alumno">
+            <End Role="Alumno" EntitySet="Alumno" />
+            <End Role="QuestionInExam" EntitySet="QuestionInExam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlanEstudios_Carrera" Association="EgelTrainingModel.FK_PlanEstudios_Carrera">
+            <End Role="Carrera" EntitySet="Carrera" />
+            <End Role="PlanEstudios" EntitySet="PlanEstudios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Examen_Usuario" Association="EgelTrainingModel.FK_Examen_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Examen" EntitySet="Examen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuestionInExam_Examen" Association="EgelTrainingModel.FK_QuestionInExam_Examen">
+            <End Role="Examen" EntitySet="Examen" />
+            <End Role="QuestionInExam" EntitySet="QuestionInExam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pregunta_Usuario" Association="EgelTrainingModel.FK_Pregunta_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Pregunta" EntitySet="Pregunta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuestionInExam_Pregunta" Association="EgelTrainingModel.FK_QuestionInExam_Pregunta">
+            <End Role="Pregunta" EntitySet="Pregunta" />
+            <End Role="QuestionInExam" EntitySet="QuestionInExam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RespuestasErroneas_Pregunta" Association="EgelTrainingModel.FK_RespuestasErroneas_Pregunta">
+            <End Role="Pregunta" EntitySet="Pregunta" />
+            <End Role="RespuestasErroneas" EntitySet="RespuestasErroneas" />
+          </AssociationSet>
+          <AssociationSet Name="AlumnoExamen" Association="EgelTrainingModel.AlumnoExamen">
+            <End Role="Alumno" EntitySet="Alumno" />
+            <End Role="Examen" EntitySet="Examen" />
+          </AssociationSet>
+          <AssociationSet Name="CarreraTieneTema" Association="EgelTrainingModel.CarreraTieneTema">
+            <End Role="Carrera" EntitySet="Carrera" />
+            <End Role="Tema" EntitySet="Tema" />
+          </AssociationSet>
+          <AssociationSet Name="TemaEstaEnExamen" Association="EgelTrainingModel.TemaEstaEnExamen">
+            <End Role="Examen" EntitySet="Examen" />
+            <End Role="Tema" EntitySet="Tema" />
+          </AssociationSet>
+          <AssociationSet Name="TemaTienePregunta" Association="EgelTrainingModel.TemaTienePregunta">
+            <End Role="Pregunta" EntitySet="Pregunta" />
+            <End Role="Tema" EntitySet="Tema" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Alumno">
+          <Key>
+            <PropertyRef Name="Matricula" />
+          </Key>
+          <Property Name="Matricula" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoPaterno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Carrera" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="CorreoElectronico" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="PasswordHash" Type="Binary" MaxLength="64" FixedLength="true" />
+          <NavigationProperty Name="Carrera1" Relationship="EgelTrainingModel.FK_Alumno_Carrera" FromRole="Alumno" ToRole="Carrera" />
+          <NavigationProperty Name="QuestionInExam" Relationship="EgelTrainingModel.FK_QuestionInExam_Alumno" FromRole="Alumno" ToRole="QuestionInExam" />
+          <NavigationProperty Name="Examen" Relationship="EgelTrainingModel.AlumnoExamen" FromRole="Alumno" ToRole="Examen" />
+        </EntityType>
+        <EntityType Name="Carrera">
+          <Key>
+            <PropertyRef Name="Siglas" />
+          </Key>
+          <Property Name="Siglas" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="NombreLargo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Alumno" Relationship="EgelTrainingModel.FK_Alumno_Carrera" FromRole="Carrera" ToRole="Alumno" />
+          <NavigationProperty Name="PlanEstudios" Relationship="EgelTrainingModel.FK_PlanEstudios_Carrera" FromRole="Carrera" ToRole="PlanEstudios" />
+          <NavigationProperty Name="Tema" Relationship="EgelTrainingModel.CarreraTieneTema" FromRole="Carrera" ToRole="Tema" />
+        </EntityType>
+        <EntityType Name="Examen">
+          <Key>
+            <PropertyRef Name="IDExamen" />
+          </Key>
+          <Property Name="IDExamen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FechaDeCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Id" Type="Int32" />
+          <NavigationProperty Name="Usuario" Relationship="EgelTrainingModel.FK_Examen_Usuario" FromRole="Examen" ToRole="Usuario" />
+          <NavigationProperty Name="QuestionInExam" Relationship="EgelTrainingModel.FK_QuestionInExam_Examen" FromRole="Examen" ToRole="QuestionInExam" />
+          <NavigationProperty Name="Alumno" Relationship="EgelTrainingModel.AlumnoExamen" FromRole="Examen" ToRole="Alumno" />
+          <NavigationProperty Name="Tema" Relationship="EgelTrainingModel.TemaEstaEnExamen" FromRole="Examen" ToRole="Tema" />
+        </EntityType>
+        <EntityType Name="PlanEstudios">
+          <Key>
+            <PropertyRef Name="Siglas" />
+            <PropertyRef Name="Plan" />
+          </Key>
+          <Property Name="Siglas" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Plan" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Carrera" Relationship="EgelTrainingModel.FK_PlanEstudios_Carrera" FromRole="PlanEstudios" ToRole="Carrera" />
+        </EntityType>
+        <EntityType Name="Pregunta">
+          <Key>
+            <PropertyRef Name="IDPregunta" />
+          </Key>
+          <Property Name="IDPregunta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Texto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Tipo" Type="Int16" Nullable="false" />
+          <Property Name="TextoRespuesta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RespuestaCorrecta" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Dificultad" Type="Int16" Nullable="false" />
+          <Property Name="Id" Type="Int32" />
+          <NavigationProperty Name="Usuario" Relationship="EgelTrainingModel.FK_Pregunta_Usuario" FromRole="Pregunta" ToRole="Usuario" />
+          <NavigationProperty Name="QuestionInExam" Relationship="EgelTrainingModel.FK_QuestionInExam_Pregunta" FromRole="Pregunta" ToRole="QuestionInExam" />
+          <NavigationProperty Name="RespuestasErroneas" Relationship="EgelTrainingModel.FK_RespuestasErroneas_Pregunta" FromRole="Pregunta" ToRole="RespuestasErroneas" />
+          <NavigationProperty Name="Tema" Relationship="EgelTrainingModel.TemaTienePregunta" FromRole="Pregunta" ToRole="Tema" />
+        </EntityType>
+        <EntityType Name="QuestionInExam">
+          <Key>
+            <PropertyRef Name="IDExamen" />
+            <PropertyRef Name="IDPregunta" />
+            <PropertyRef Name="Matricula" />
+          </Key>
+          <Property Name="IDExamen" Type="Int32" Nullable="false" />
+          <Property Name="IDPregunta" Type="Int32" Nullable="false" />
+          <Property Name="Respuesta" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Matricula" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Alumno" Relationship="EgelTrainingModel.FK_QuestionInExam_Alumno" FromRole="QuestionInExam" ToRole="Alumno" />
+          <NavigationProperty Name="Examen" Relationship="EgelTrainingModel.FK_QuestionInExam_Examen" FromRole="QuestionInExam" ToRole="Examen" />
+          <NavigationProperty Name="Pregunta" Relationship="EgelTrainingModel.FK_QuestionInExam_Pregunta" FromRole="QuestionInExam" ToRole="Pregunta" />
+        </EntityType>
+        <EntityType Name="RespuestasErroneas">
+          <Key>
+            <PropertyRef Name="Consecutivo" />
+          </Key>
+          <Property Name="Consecutivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Pregunta" Type="Int32" Nullable="false" />
+          <Property Name="Opcion" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="TextoRespuesta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Explicacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Pregunta" Relationship="EgelTrainingModel.FK_RespuestasErroneas_Pregunta" FromRole="RespuestasErroneas" ToRole="Pregunta" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tema">
+          <Key>
+            <PropertyRef Name="ClaveTema" />
+          </Key>
+          <Property Name="ClaveTema" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NombreTema" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Carrera" Relationship="EgelTrainingModel.CarreraTieneTema" FromRole="Tema" ToRole="Carrera" />
+          <NavigationProperty Name="Examen" Relationship="EgelTrainingModel.TemaEstaEnExamen" FromRole="Tema" ToRole="Examen" />
+          <NavigationProperty Name="Pregunta" Relationship="EgelTrainingModel.TemaTienePregunta" FromRole="Tema" ToRole="Pregunta" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ApellidoPaterno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ApellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CorreoElectronico" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="Binary" MaxLength="64" FixedLength="true" />
+          <NavigationProperty Name="Examen" Relationship="EgelTrainingModel.FK_Examen_Usuario" FromRole="Usuario" ToRole="Examen" />
+          <NavigationProperty Name="Pregunta" Relationship="EgelTrainingModel.FK_Pregunta_Usuario" FromRole="Usuario" ToRole="Pregunta" />
+        </EntityType>
+        <Association Name="FK_Alumno_Carrera">
+          <End Type="EgelTrainingModel.Carrera" Role="Carrera" Multiplicity="1" />
+          <End Type="EgelTrainingModel.Alumno" Role="Alumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carrera">
+              <PropertyRef Name="Siglas" />
+            </Principal>
+            <Dependent Role="Alumno">
+              <PropertyRef Name="Carrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuestionInExam_Alumno">
+          <End Type="EgelTrainingModel.Alumno" Role="Alumno" Multiplicity="1" />
+          <End Type="EgelTrainingModel.QuestionInExam" Role="QuestionInExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alumno">
+              <PropertyRef Name="Matricula" />
+            </Principal>
+            <Dependent Role="QuestionInExam">
+              <PropertyRef Name="Matricula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlanEstudios_Carrera">
+          <End Type="EgelTrainingModel.Carrera" Role="Carrera" Multiplicity="1" />
+          <End Type="EgelTrainingModel.PlanEstudios" Role="PlanEstudios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carrera">
+              <PropertyRef Name="Siglas" />
+            </Principal>
+            <Dependent Role="PlanEstudios">
+              <PropertyRef Name="Siglas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Examen_Usuario">
+          <End Type="EgelTrainingModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+          <End Type="EgelTrainingModel.Examen" Role="Examen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Examen">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuestionInExam_Examen">
+          <End Type="EgelTrainingModel.Examen" Role="Examen" Multiplicity="1" />
+          <End Type="EgelTrainingModel.QuestionInExam" Role="QuestionInExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Examen">
+              <PropertyRef Name="IDExamen" />
+            </Principal>
+            <Dependent Role="QuestionInExam">
+              <PropertyRef Name="IDExamen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pregunta_Usuario">
+          <End Type="EgelTrainingModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+          <End Type="EgelTrainingModel.Pregunta" Role="Pregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pregunta">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuestionInExam_Pregunta">
+          <End Type="EgelTrainingModel.Pregunta" Role="Pregunta" Multiplicity="1" />
+          <End Type="EgelTrainingModel.QuestionInExam" Role="QuestionInExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pregunta">
+              <PropertyRef Name="IDPregunta" />
+            </Principal>
+            <Dependent Role="QuestionInExam">
+              <PropertyRef Name="IDPregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RespuestasErroneas_Pregunta">
+          <End Type="EgelTrainingModel.Pregunta" Role="Pregunta" Multiplicity="1" />
+          <End Type="EgelTrainingModel.RespuestasErroneas" Role="RespuestasErroneas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pregunta">
+              <PropertyRef Name="IDPregunta" />
+            </Principal>
+            <Dependent Role="RespuestasErroneas">
+              <PropertyRef Name="ID_Pregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AlumnoExamen">
+          <End Type="EgelTrainingModel.Alumno" Role="Alumno" Multiplicity="*" />
+          <End Type="EgelTrainingModel.Examen" Role="Examen" Multiplicity="*" />
+        </Association>
+        <Association Name="CarreraTieneTema">
+          <End Type="EgelTrainingModel.Carrera" Role="Carrera" Multiplicity="*" />
+          <End Type="EgelTrainingModel.Tema" Role="Tema" Multiplicity="*" />
+        </Association>
+        <Association Name="TemaEstaEnExamen">
+          <End Type="EgelTrainingModel.Examen" Role="Examen" Multiplicity="*" />
+          <End Type="EgelTrainingModel.Tema" Role="Tema" Multiplicity="*" />
+        </Association>
+        <Association Name="TemaTienePregunta">
+          <End Type="EgelTrainingModel.Pregunta" Role="Pregunta" Multiplicity="*" />
+          <End Type="EgelTrainingModel.Tema" Role="Tema" Multiplicity="*" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EgelTrainingModelStoreContainer" CdmEntityContainer="EgelTrainingEntities">
+          <EntitySetMapping Name="Alumno">
+            <EntityTypeMapping TypeName="EgelTrainingModel.Alumno">
+              <MappingFragment StoreEntitySet="Alumno">
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+                <ScalarProperty Name="Carrera" ColumnName="Carrera" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carrera">
+            <EntityTypeMapping TypeName="EgelTrainingModel.Carrera">
+              <MappingFragment StoreEntitySet="Carrera">
+                <ScalarProperty Name="NombreLargo" ColumnName="NombreLargo" />
+                <ScalarProperty Name="Siglas" ColumnName="Siglas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Examen">
+            <EntityTypeMapping TypeName="EgelTrainingModel.Examen">
+              <MappingFragment StoreEntitySet="Examen">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FechaDeCreacion" ColumnName="FechaDeCreacion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IDExamen" ColumnName="IDExamen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlanEstudios">
+            <EntityTypeMapping TypeName="EgelTrainingModel.PlanEstudios">
+              <MappingFragment StoreEntitySet="PlanEstudios">
+                <ScalarProperty Name="Plan" ColumnName="Plan" />
+                <ScalarProperty Name="Siglas" ColumnName="Siglas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pregunta">
+            <EntityTypeMapping TypeName="EgelTrainingModel.Pregunta">
+              <MappingFragment StoreEntitySet="Pregunta">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Dificultad" ColumnName="Dificultad" />
+                <ScalarProperty Name="RespuestaCorrecta" ColumnName="RespuestaCorrecta" />
+                <ScalarProperty Name="TextoRespuesta" ColumnName="TextoRespuesta" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="Texto" ColumnName="Texto" />
+                <ScalarProperty Name="IDPregunta" ColumnName="IDPregunta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuestionInExam">
+            <EntityTypeMapping TypeName="EgelTrainingModel.QuestionInExam">
+              <MappingFragment StoreEntitySet="QuestionInExam">
+                <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+                <ScalarProperty Name="Respuesta" ColumnName="Respuesta" />
+                <ScalarProperty Name="IDPregunta" ColumnName="IDPregunta" />
+                <ScalarProperty Name="IDExamen" ColumnName="IDExamen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RespuestasErroneas">
+            <EntityTypeMapping TypeName="EgelTrainingModel.RespuestasErroneas">
+              <MappingFragment StoreEntitySet="RespuestasErroneas">
+                <ScalarProperty Name="Explicacion" ColumnName="Explicacion" />
+                <ScalarProperty Name="TextoRespuesta" ColumnName="TextoRespuesta" />
+                <ScalarProperty Name="Opcion" ColumnName="Opcion" />
+                <ScalarProperty Name="ID_Pregunta" ColumnName="ID_Pregunta" />
+                <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="EgelTrainingModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tema">
+            <EntityTypeMapping TypeName="EgelTrainingModel.Tema">
+              <MappingFragment StoreEntitySet="Tema">
+                <ScalarProperty Name="NombreTema" ColumnName="NombreTema" />
+                <ScalarProperty Name="ClaveTema" ColumnName="ClaveTema" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="EgelTrainingModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AlumnoExamen" TypeName="EgelTrainingModel.AlumnoExamen" StoreEntitySet="AlumnoExamen">
+            <EndProperty Name="Examen">
+              <ScalarProperty Name="IDExamen" ColumnName="Examen_IDExamen" />
+            </EndProperty>
+            <EndProperty Name="Alumno">
+              <ScalarProperty Name="Matricula" ColumnName="Alumno_Matricula" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="CarreraTieneTema" TypeName="EgelTrainingModel.CarreraTieneTema" StoreEntitySet="CarreraTieneTema">
+            <EndProperty Name="Tema">
+              <ScalarProperty Name="ClaveTema" ColumnName="Tema_ClaveTema" />
+            </EndProperty>
+            <EndProperty Name="Carrera">
+              <ScalarProperty Name="Siglas" ColumnName="Carrera_Siglas" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TemaEstaEnExamen" TypeName="EgelTrainingModel.TemaEstaEnExamen" StoreEntitySet="TemaEstaEnExamen">
+            <EndProperty Name="Tema">
+              <ScalarProperty Name="ClaveTema" ColumnName="Tema_ClaveTema" />
+            </EndProperty>
+            <EndProperty Name="Examen">
+              <ScalarProperty Name="IDExamen" ColumnName="Examen_IDExamen" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TemaTienePregunta" TypeName="EgelTrainingModel.TemaTienePregunta" StoreEntitySet="TemaTienePregunta">
+            <EndProperty Name="Tema">
+              <ScalarProperty Name="ClaveTema" ColumnName="Tema_ClaveTema" />
+            </EndProperty>
+            <EndProperty Name="Pregunta">
+              <ScalarProperty Name="IDPregunta" ColumnName="Pregunta_IDPregunta" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

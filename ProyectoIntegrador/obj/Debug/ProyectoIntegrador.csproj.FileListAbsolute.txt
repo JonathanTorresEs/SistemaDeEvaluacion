@@ -1,0 +1,369 @@
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\ApplicationInsights.config
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\ProyectoIntegrador.dll.config
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\ProyectoIntegrador.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\ProyectoIntegrador.pdb
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\Antlr3.Runtime.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\EntityFramework.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\EntityFramework.SqlServer.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.Agent.Intercept.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.DependencyCollector.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.Web.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.WindowsServer.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.ApplicationInsights.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.Web.Infrastructure.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\Newtonsoft.Json.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Helpers.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Mvc.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Optimization.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Razor.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.Deployment.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.Razor.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\WebGrease.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\EntityFramework.xml
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\EntityFramework.SqlServer.xml
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Helpers.xml
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Mvc.xml
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Optimization.xml
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Razor.xml
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.xml
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.Deployment.xml
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.Razor.xml
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\Antlr3.Runtime.pdb
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\Newtonsoft.Json.xml
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.ApplicationInsights.xml
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.DependencyCollector.xml
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.WindowsServer.xml
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.Web.xml
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.Helpers.resources.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.Mvc.resources.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.Optimization.resources.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.Razor.resources.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.WebPages.resources.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.WebPages.Deployment.resources.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.WebPages.Razor.resources.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.csprojResolveAssemblyReference.cache
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.csproj.CoreCompileInputs.cache
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.dll
+c:\users\luis mora\source\repos\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.pdb
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\ApplicationInsights.config
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\ProyectoIntegrador.dll.config
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\ProyectoIntegrador.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\ProyectoIntegrador.pdb
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\Antlr3.Runtime.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\EntityFramework.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\EntityFramework.SqlServer.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.Web.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\Newtonsoft.Json.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Helpers.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Mvc.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Optimization.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Razor.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.Razor.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\WebGrease.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\EntityFramework.xml
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\EntityFramework.SqlServer.xml
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Helpers.xml
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Mvc.xml
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Optimization.xml
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Razor.xml
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.xml
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.Razor.xml
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\Antlr3.Runtime.pdb
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\Newtonsoft.Json.xml
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.Web.xml
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.Optimization.resources.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.Razor.resources.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.WebPages.resources.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.csproj.CoreCompileInputs.cache
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.dll
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.pdb
+C:\Users\Richi González\Desktop\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.csprojResolveAssemblyReference.cache
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\ApplicationInsights.config
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\ProyectoIntegrador.dll.config
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\ProyectoIntegrador.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\ProyectoIntegrador.pdb
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Antlr3.Runtime.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\EntityFramework.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\EntityFramework.SqlServer.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.Web.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Newtonsoft.Json.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Helpers.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Mvc.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Optimization.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Razor.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.Razor.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\WebGrease.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\EntityFramework.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\EntityFramework.SqlServer.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Helpers.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Mvc.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Optimization.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Razor.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.Razor.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Antlr3.Runtime.pdb
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Newtonsoft.Json.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.Web.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.Optimization.resources.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.Razor.resources.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.WebPages.resources.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.csprojResolveAssemblyReference.cache
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.csproj.CoreCompileInputs.cache
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.pdb
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\ApplicationInsights.config
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\ProyectoIntegrador.dll.config
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\ProyectoIntegrador.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\ProyectoIntegrador.pdb
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Antlr3.Runtime.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\EntityFramework.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\EntityFramework.SqlServer.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.Web.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Newtonsoft.Json.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Helpers.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Mvc.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Optimization.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Razor.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.Razor.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\WebGrease.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\EntityFramework.xml
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\EntityFramework.SqlServer.xml
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Helpers.xml
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Mvc.xml
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Optimization.xml
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.Razor.xml
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.xml
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\System.Web.WebPages.Razor.xml
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Antlr3.Runtime.pdb
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Newtonsoft.Json.xml
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\Microsoft.AI.Web.xml
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.Optimization.resources.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.Razor.resources.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.WebPages.resources.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.csprojResolveAssemblyReference.cache
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.csproj.CoreCompileInputs.cache
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.dll
+C:\Users\Dilan\Downloads\ProyectoIntegrador\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.pdb
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\ApplicationInsights.config
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\ProyectoIntegrador.dll.config
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\ProyectoIntegrador.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\ProyectoIntegrador.pdb
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Antlr3.Runtime.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\EntityFramework.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\EntityFramework.SqlServer.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.Web.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Newtonsoft.Json.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.Helpers.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.Mvc.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.Optimization.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.Razor.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.WebPages.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.WebPages.Razor.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\WebGrease.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\EntityFramework.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\EntityFramework.SqlServer.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.Helpers.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.Mvc.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.Optimization.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.Razor.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.WebPages.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.WebPages.Razor.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Antlr3.Runtime.pdb
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Newtonsoft.Json.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.Web.xml
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\es\System.Web.Optimization.resources.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\es\System.Web.Razor.resources.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\es\System.Web.WebPages.resources.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.csprojResolveAssemblyReference.cache
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.csproj.CoreCompileInputs.cache
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.dll
+C:\Users\Luis mora\Desktop\ProyectoIntegrador_FINAL\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.pdb
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\ApplicationInsights.config
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\ProyectoIntegrador.dll.config
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\ProyectoIntegrador.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\ProyectoIntegrador.pdb
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Antlr3.Runtime.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\EntityFramework.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\EntityFramework.SqlServer.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.Web.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Newtonsoft.Json.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.Helpers.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.Mvc.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.Optimization.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.Razor.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.WebPages.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.WebPages.Razor.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\WebGrease.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\EntityFramework.xml
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\EntityFramework.SqlServer.xml
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.Helpers.xml
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.Mvc.xml
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.Optimization.xml
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.Razor.xml
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.WebPages.xml
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\System.Web.WebPages.Razor.xml
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Antlr3.Runtime.pdb
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Newtonsoft.Json.xml
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\Microsoft.AI.Web.xml
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\es\System.Web.Optimization.resources.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\es\System.Web.Razor.resources.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\es\System.Web.WebPages.resources.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.csprojResolveAssemblyReference.cache
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.dll
+C:\Users\Polaris\Documents\ITIC\10mo Semestre\Proyecto Integrador\ProyectoIntegrador_FINAL\ProyectoIntegrador_FINAL\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.pdb
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\ApplicationInsights.config
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\ProyectoIntegrador.dll.config
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\ProyectoIntegrador.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\ProyectoIntegrador.pdb
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\Antlr3.Runtime.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\EntityFramework.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\EntityFramework.SqlServer.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\Microsoft.AI.Web.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\Newtonsoft.Json.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\System.Web.Helpers.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\System.Web.Mvc.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\System.Web.Optimization.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\System.Web.Razor.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\System.Web.WebPages.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\System.Web.WebPages.Razor.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\WebGrease.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\EntityFramework.xml
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\EntityFramework.SqlServer.xml
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\System.Web.Helpers.xml
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\System.Web.Mvc.xml
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\System.Web.Optimization.xml
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\System.Web.Razor.xml
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\System.Web.WebPages.xml
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\System.Web.WebPages.Razor.xml
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\Antlr3.Runtime.pdb
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\Newtonsoft.Json.xml
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\Microsoft.AI.Web.xml
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\es\System.Web.Optimization.resources.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\es\System.Web.Razor.resources.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\es\System.Web.WebPages.resources.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.csprojResolveAssemblyReference.cache
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.dll
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.pdb

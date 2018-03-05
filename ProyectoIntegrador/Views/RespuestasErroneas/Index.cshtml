@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ProyectoIntegrador.Models.RespuestasErroneas>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Opcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TextoRespuesta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Explicacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pregunta.Texto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Opcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TextoRespuesta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Explicacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pregunta.Texto)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Consecutivo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Consecutivo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Consecutivo })
+        </td>
+    </tr>
+}
+
+</table>

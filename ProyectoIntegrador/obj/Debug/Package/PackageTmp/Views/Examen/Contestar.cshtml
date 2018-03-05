@@ -1,0 +1,189 @@
+﻿@model ProyectoIntegrador.Models.Examen
+
+@{
+    Layout = null;
+
+}
+
+@Html.Partial("~/Views/Partial/headerAlumno.cshtml");
+
+
+
+<!-- Page Content -->
+
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <div class="row bg-title">
+
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+
+                <h4 class="page-title">Contestar examen</h4>
+            </div>
+
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+
+                <ol class="breadcrumb">
+
+                    <li><a href="#">Exámenes</a></li>
+
+                    <li class="active">Contestar</li>
+
+                </ol>
+
+            </div>
+
+            <!-- /.col-lg-12 -->
+
+        </div>
+
+        <!-- /row -->
+
+        <div class="row">
+
+            <div class="col-sm-12">
+
+                <div class="white-box">
+
+                    <div class="row">
+
+                        <div class="col-sm-12">
+
+                            <h3 class="box-title m-b-0">@Model.Nombre</h3>
+                            <input type="hidden" value="@Model.IDExamen" id="IDExamen"/>
+
+                            <p class="text-muted m-b-30">
+                                @foreach(var tema in Model.Tema)
+                                {
+                                    @tema.NombreTema<br>
+                                }
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            @{  var xPreg = 0;
+                                var IDList = "";   
+                            }
+                            @foreach (var tema in Model.Tema)
+                            {
+                                <!--<strong>@tema.NombreTema</strong>-->
+                                <br />
+                                <ul class="basic">
+                                    @foreach (var p in tema.Pregunta)
+                                    {
+                                        <div>
+                                            <p><strong>@p.Texto</strong></p>
+                                            @if (p.Imagen != null) {
+                                                <img src="data:image/png;base64,@Convert.ToBase64String(p.Imagen)"; style="width:300px; height:300px" alt="" />
+                                            }
+                                            <select class="form-control" id="respuesta-@xPreg">
+                                                @{
+                                                    IDList +=p.IDPregunta+" ";
+                                                    Random rnd2 = new Random();
+
+                                                    int place2 = rnd2.Next(0, p.RespuestasErroneas.Count);
+
+                                                    var x2 = 0;
+                                                  }
+                                                @foreach (var r in p.RespuestasErroneas)
+                                                {
+                                                    <option value="@r.Opcion">@r.Opcion</option>
+                                                    if (x2 == place2)
+                                                    {
+                                                        <option value="@p.RespuestaCorrecta">@p.RespuestaCorrecta</option>
+                                                    }
+                                                    x2++;
+
+                                                }
+                                            </select>
+                                        </div>
+                                        Random rnd = new Random();
+
+                                        int place = rnd.Next(0, p.RespuestasErroneas.Count);
+
+                                        var x = 0;
+
+                                        foreach (var r in p.RespuestasErroneas)
+                                        {
+                                            if (x == place)
+                                            {
+                                                <p>@p.RespuestaCorrecta) @p.TextoRespuesta</p>
+                                            }
+                                            <p>@r.Opcion) @r.TextoRespuesta</p>
+                                            x++;
+                                        }
+                                        xPreg++;
+                                    }
+                                </ul>
+                            }
+
+                        </div>
+                        
+
+                    </div>
+
+                    <div class="row m-t-10">
+                        <div class="col-sm-12">
+                            <a class="btn btn-success btn-block" onclick="sendAnswers(@xPreg,'@IDList')">Enviar examen</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        @Html.Partial("~/Views/Partial/footerAlumno.cshtml");
+
+        <script src="~/Scripts/MyScripts/myscript.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+
+    function sendAnswers(numPreguntas, list) {
+
+        var IdExamen = parseInt(document.getElementById("IDExamen").value);
+        var Matricula = getCookie("matricula");
+
+        var respuestasList = new Array();
+
+        var IDList = list.split(" ");
+        for (var i = 0; i < numPreguntas; i++) {
+            var r = new Object();
+            r.preguntaID = IDList[i];
+            r.respuesta = document.getElementById("respuesta-" + i).value;
+
+            respuestasList.push(r);
+        }
+
+
+
+        postData = { respuestas: JSON.stringify(respuestasList), IdExamen, Matricula };
+
+        $.ajax({
+            type: "POST",
+            url: "/Examen/Contestar",
+            data: postData,
+            //traditional: false,
+            //dataType: "json",
+            success: function (data) {
+                if (data.url != null) {
+                    window.location = data.url;
+                }
+                if (data.ExamenContestado != null) {
+                    alert("El examen ya ha sido contestado por el alumno.");
+                }
+            }
+        });
+        
+
+    }
+
+</script>

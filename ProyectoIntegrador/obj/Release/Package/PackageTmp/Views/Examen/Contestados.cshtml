@@ -1,0 +1,123 @@
+﻿@model ProyectoIntegrador.ViewModels.ExamenesContestadosVM
+
+@{
+    Layout = null;
+
+}
+
+@Html.Partial("~/Views/Partial/headerAlumno.cshtml");
+
+<!-- Page Content -->
+
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <div class="row bg-title">
+
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+
+                <h4 class="page-title">Exámenes</h4>
+            </div>
+
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+
+                <ol class="breadcrumb">
+
+                    <li><a href="#">Exámenes</a></li>
+
+                    <li class="active">Disponibles</li>
+
+                </ol>
+
+            </div>
+
+            <!-- /.col-lg-12 -->
+
+        </div>
+
+        <!-- /row -->
+
+        <div class="row">
+
+            <div class="col-sm-12">
+
+                <div class="white-box">
+
+                    <div class="row">
+
+                        <div class="col-sm-12">
+
+                            <h3 class="box-title m-b-0">Exámenes</h3>
+
+                            <p class="text-muted m-b-30">Todos los <span class="font-normal">exámenes</span> disponibles</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="table-responsive">
+
+                        <table id="myTable" class="table table-striped">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th class="text-center">Nombre</th>
+
+                                    <th class="text-center">Descripción</th>
+
+                                    <th class="text-center">Tema(s)</th>
+
+                                    <th class="text-center">Fecha de Creación</th>
+
+                                    <th class="text-center">Acciones</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                @foreach (var item in Model.examenes)
+                                {
+
+                                    <tr>
+                                        <td class="text-center">
+                                            @Html.DisplayFor(modelItem => item.Nombre)
+                                        </td>
+                                        <td class="text-center">
+                                            @Html.DisplayFor(modelItem => item.Descripcion)
+                                        </td>
+                                        <td class="text-center">
+                                            <ul>
+                                                @foreach (var t in item.Tema)
+                                                {
+                                                    <li>@Html.DisplayFor(modelItem => t.NombreTema)</li>
+                                                }
+                                            </ul>
+                                        </td>
+                                        <td class="text-center">
+                                            @Html.DisplayFor(modelItem => item.FechaDeCreacion)
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="../Examen/VerRetro/@item.IDExamen" class=" text-success" data-toggle="tooltip" data-original-title="Ver retro">
+                                                <i class="fa fa-share"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        @Html.Partial("~/Views/Partial/footerAlumno.cshtml");

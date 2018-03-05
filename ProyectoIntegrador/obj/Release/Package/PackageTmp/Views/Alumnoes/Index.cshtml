@@ -1,0 +1,141 @@
+﻿@model IEnumerable<ProyectoIntegrador.Models.Alumno>
+
+@{
+    Layout = null;
+
+}
+
+@Html.Partial("~/Views/Partial/header.cshtml");
+
+
+
+<!-- Page Content -->
+
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <div class="row bg-title">
+
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+
+                <h4 class="page-title">Alumnos</h4>
+            </div>
+
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+
+                <ol class="breadcrumb">
+
+                    <li><a href="#">Alumnos</a></li>
+
+                    <li class="active">Todos</li>
+
+                </ol>
+
+            </div>
+
+            <!-- /.col-lg-12 -->
+
+        </div>
+
+        <!-- /row -->
+
+        <div class="row">
+
+            <div class="col-sm-12">
+
+                <div class="white-box">
+
+                    <div class="row">
+
+                        <div class="col-sm-6">
+
+                            <h3 class="box-title m-b-0">Alumnos</h3>
+
+                            <p class="text-muted m-b-30">Todos los <span class="font-normal">alumnos</span></p>
+
+                        </div>
+
+                        <div class="col-sm-6">
+
+                            <h3 class="box-title m-b-0 pull-right">
+
+                                <a href="../Alumnoes/Create" id="" class="btn btn-primary btn-outline"><i class="fa fa-plus"></i> Nuevo</a>
+
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                    <div class="table-responsive">
+
+                        <table id="myTable" class="table table-striped">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th class="text-center">Nombre</th>
+
+                                    <th class="text-center">Apellido P.</th>
+
+                                    <th class="text-center">Apellido M.</th>
+
+                                    <th class="text-center">Email</th>
+
+                                    <th class="text-center">Carrera</th>
+
+                                    <th class="text-center">Acciones</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                @foreach (var item in Model)
+                                {
+
+                                    <tr>
+                                        <td class="text-center">
+                                            @Html.DisplayFor(modelItem => item.Nombre)
+                                        </td>
+                                        <td class="text-center">
+                                            @Html.DisplayFor(modelItem => item.ApellidoPaterno)
+                                        </td>
+                                        <td class="text-center">
+                                            @Html.DisplayFor(modelItem => item.ApellidoMaterno)
+                                        </td>
+                                        <td class="text-center">
+                                            @Html.DisplayFor(modelItem => item.CorreoElectronico)
+                                        </td>
+                                        <td class="text-center">
+                                            @Html.DisplayFor(modelItem => item.Carrera)
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="../Alumnoes/Edit/@item.Matricula" class=" text-info" data-toggle="tooltip" data-original-title="Edit">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a href="../Alumnoes/Delete/@item.Matricula" class=" text-danger" data-toggle="tooltip" data-original-title="Delete">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                            <a href="../Alumnoes/Asignar/@item.Matricula" class=" text-success" data-toggle="tooltip" data-original-title="Asignar">
+                                                <i class="fa fa-calendar"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        @Html.Partial("~/Views/Partial/footer.cshtml");

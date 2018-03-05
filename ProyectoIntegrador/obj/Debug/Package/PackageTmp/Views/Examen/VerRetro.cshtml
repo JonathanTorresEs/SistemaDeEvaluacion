@@ -1,0 +1,114 @@
+﻿@model ProyectoIntegrador.ViewModels.RetroExamenVM
+
+@{
+    Layout = null;
+
+}
+
+@Html.Partial("~/Views/Partial/headerAlumno.cshtml");
+
+
+<!-- Page Content -->
+
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <div class="row bg-title">
+
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+
+                <h4 class="page-title">Retroalimentación exámen</h4>
+            </div>
+
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+
+                <ol class="breadcrumb">
+
+                    <li><a href="#">Exámen</a></li>
+
+                    <li class="active">@Model.examen.Nombre</li>
+
+                </ol>
+
+            </div>
+
+            <!-- /.col-lg-12 -->
+
+        </div>
+
+        <!-- /row -->
+
+        <div class="row">
+
+            <div class="col-sm-12">
+
+                <div class="white-box">
+
+                    <div class="row">
+
+                        <div class="col-sm-12">
+
+                            <h3 class="box-title m-b-0">Exámen</h3>
+
+                            <p class="text-muted m-b-30">Calificación <span class="font-normal">@Model.calificacion</span> </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="table-responsive">
+
+                        <table id="myTable" class="table table-striped">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th class="text-center">Pregunta</th>
+
+                                    <th class="text-center">Respuesta</th>
+
+                                    <th class="text-center">Respuesta correcta</th>
+
+                                    <th class="text-center">Explicación</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                @foreach (var item in Model.preguntas)
+                                {
+
+                                    <tr>
+                                        <td class="text-center">
+                                            @Html.DisplayFor(modelItem => item.pregunta.Texto)
+                                        </td>
+                                        <td class="text-center">
+                                            @Html.DisplayFor(modelItem => item.respuestaInciso)
+                                            @Html.DisplayFor(modelItem =>item.respuestaTexto)
+                                        </td>
+                                        <td class="text-center">
+                                            @Html.DisplayFor(modelItem => item.pregunta.RespuestaCorrecta)
+                                            @Html.DisplayFor(modelItem => item.pregunta.TextoRespuesta)
+                                        </td>
+                                        <td class="text-center">
+                                            @Html.DisplayFor(modelItem => item.explicacion)
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        @Html.Partial("~/Views/Partial/footerAlumno.cshtml");
