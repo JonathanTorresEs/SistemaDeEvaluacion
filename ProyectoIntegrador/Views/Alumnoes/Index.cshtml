@@ -86,6 +86,8 @@
 
                                     <th class="text-center">Carrera</th>
 
+                                    <th class="text-center">Matrícula</th>
+
                                     <th class="text-center">Acciones</th>
 
                                 </tr>
@@ -97,34 +99,37 @@
                                 @foreach (var item in Model)
                                 {
 
-                                    <tr>
-                                        <td class="text-center">
-                                            @Html.DisplayFor(modelItem => item.Nombre)
-                                        </td>
-                                        <td class="text-center">
-                                            @Html.DisplayFor(modelItem => item.ApellidoPaterno)
-                                        </td>
-                                        <td class="text-center">
-                                            @Html.DisplayFor(modelItem => item.ApellidoMaterno)
-                                        </td>
-                                        <td class="text-center">
-                                            @Html.DisplayFor(modelItem => item.CorreoElectronico)
-                                        </td>
-                                        <td class="text-center">
-                                            @Html.DisplayFor(modelItem => item.Carrera)
-                                        </td>
-                                        <td class="text-center">
-                                            <a href="../Alumnoes/Edit/@item.Matricula" class=" text-info" data-toggle="tooltip" data-original-title="Edit">
-                                                <i class="fa fa-pencil"></i>
-                                            </a>
-                                            <a href="../Alumnoes/Delete/@item.Matricula" class=" text-danger" data-toggle="tooltip" data-original-title="Delete">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                            <a href="../Alumnoes/Asignar/@item.Matricula" class=" text-success" data-toggle="tooltip" data-original-title="Asignar">
-                                                <i class="fa fa-calendar"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td class="text-center">
+                                        @Html.DisplayFor(modelItem => item.Nombre)
+                                    </td>
+                                    <td class="text-center">
+                                        @Html.DisplayFor(modelItem => item.ApellidoPaterno)
+                                    </td>
+                                    <td class="text-center">
+                                        @Html.DisplayFor(modelItem => item.ApellidoMaterno)
+                                    </td>
+                                    <td class="text-center">
+                                        @Html.DisplayFor(modelItem => item.CorreoElectronico)
+                                    </td>
+                                    <td class="text-center">
+                                        @Html.DisplayFor(modelItem => item.Carrera)
+                                    </td>
+                                    <td class="text-center">
+                                        @Html.DisplayFor(modelItem => item.Matricula)
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="../Alumnoes/Edit/@item.Matricula" class=" text-info" data-toggle="tooltip" data-original-title="Edit">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                        <a href="../Alumnoes/Delete/@item.Matricula" class=" text-danger" data-toggle="tooltip" data-original-title="Delete">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                        <a href="../Alumnoes/Asignar/@item.Matricula" class=" text-success" data-toggle="tooltip" data-original-title="Asignar">
+                                            <i class="fa fa-calendar"></i>
+                                        </a>
+                                    </td>
+                                </tr>
                                 }
                             </tbody>
 

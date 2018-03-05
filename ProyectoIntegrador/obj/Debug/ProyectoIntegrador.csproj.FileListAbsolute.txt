@@ -367,3 +367,4 @@ C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\bin\es\System.
 C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.csprojResolveAssemblyReference.cache
 C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.dll
 C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.pdb
+C:\Users\Polaris\Documents\Proyecto Integrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.csproj.CoreCompileInputs.cache

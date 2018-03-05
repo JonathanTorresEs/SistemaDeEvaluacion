@@ -20,7 +20,7 @@ namespace ProyectoIntegrador.Controllers
         [HttpPost]
         public ActionResult ValidateUser(String username, String password)
         {
-            Usuario user = db.Usuario.Where(a => a.Nombre == username).FirstOrDefault();
+            Usuario user = db.Usuario.Where(a => a.CorreoElectronico == username).FirstOrDefault();
             if (user != null)
             {
                 var sha1 = new SHA1CryptoServiceProvider();
