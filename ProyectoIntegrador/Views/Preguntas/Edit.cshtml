@@ -56,278 +56,286 @@
                     <div class="row m-t-10">
                         <div class="col-sm-12">
 
-                                <div class="form-horizontal">
-                                    <h4>Editar Pregunta</h4>
-                                    <input type="hidden" value="@Model.pregunta.IDPregunta" name="idPregunta" id="idPregunta"/>
-                                    @*<div class="form-group">
-                                        <label class="control-label col-md-2">Tema de la pregunta</label>
-                                        <div class="col-md-4">
-                                            <select class="ui fluid search dropdown form-control" name="tema" data-original="" id="tema">
-                                                <!--<option value="">Tema</option>-->
-                                                @if (ViewBag.Temas != null)
-                                                {
-                                                    foreach (var item in ViewBag.Temas)
-                                                    {
-                                                        if (ViewBag.TemaSelected == item.ClaveTema)
-                                                        {
-                                                            <option selected value="@(item.ClaveTema)">@(item.NombreTema)</option>
-                                                        }
-                                                        else
-                                                        {
-                                                            <option value="@(item.ClaveTema)">@(item.NombreTema)</option>
-                                                        }
+                            <div class="form-horizontal">
+                                <h4>Editar Pregunta</h4>
+                                <input type="hidden" value="@Model.pregunta.IDPregunta" name="idPregunta" id="idPregunta" />
 
-                                                    }
-                                                }
-                                            </select>
-                                        </div>
-                                    </div>*@
-
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.pregunta.Texto, htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.EditorFor(model => model.pregunta.Texto, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.pregunta.Texto, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.pregunta.Tipo, htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-4">
-                                            <select name="Tipo" id="Tipo" class="form-control" onchange="respuesta(this.value);">
-                                                <option value="0">-</option>
-                                                @if (Model.pregunta.Tipo == 1)
-                                                {
-                                                    <option selected value="1">Opcion multiple</option>
-                                                    <option value="2">V/F</option>
-                                                }
-                                                else if (Model.pregunta.Tipo == 2)
-                                                {
-                                                    <option value="1">Opcion multiple</option>
-                                                    <option selected value="2">V/F</option>
-                                                }
-                                            </select>
-                                            @Html.ValidationMessageFor(model => model.pregunta.Tipo, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.pregunta.Dificultad, htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-4">
-                                            <select name="Dificultad" id="Dificultad" class="form-control">
-                                                @if (Model.pregunta.Dificultad == 1)
-                                                {
-                                                    <option selected value="1">Facil</option>
-                                                    <option value="2">Regular</option>
-                                                    <option value="3">Intermedia</option>
-                                                    <option value="4">Avanzada</option>
-                                                }
-                                                else if (Model.pregunta.Dificultad == 2)
-                                                {
-                                                    <option value="1">Facil</option>
-                                                    <option selected value="2">Regular</option>
-                                                    <option value="3">Intermedia</option>
-                                                    <option value="4">Avanzada</option>
-                                                }
-                                                else if (Model.pregunta.Dificultad == 3)
-                                                {
-                                                    <option value="1">Facil</option>
-                                                    <option value="2">Regular</option>
-                                                    <option selected value="3">Intermedia</option>
-                                                    <option value="4">Avanzada</option>
-                                                }
-                                                else if (Model.pregunta.Dificultad == 4)
-                                                {
-                                                    <option value="1">Facil</option>
-                                                    <option value="2">Regular</option>
-                                                    <option value="3">Intermedia</option>
-                                                    <option selected value="4">Avanzada</option>
-                                                }
-                                            </select>
-                                            @Html.ValidationMessageFor(model => model.pregunta.Dificultad, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">Imagen URL</label>
-                                        <div class="col-md-10">
-                                            <input type="text" name="ImageFileURL" id="ImageFileURL" />
-                                        </div>
-                                    </div>
-
-                                    <!--Seccion de respuestas-->
-                                    <div class="form-group">
-                                        <div class="col-md-4">
-                                            Respuesta
-                                        </div>
-                                    </div>
-
-                                    <div id="opciones">
-                                        @if (Model.pregunta.Tipo == 1)
-                                        {
-                                            <div class="form-group">
-                                                <a class="control-label col-md-2">Correcta</a>
-                                                <div class="col-md-2">
-                                                    <input id="cTextoRespuesta" type="text" class="form-control" placeholder="textoRespuesta" value="@Model.pregunta.RespuestaCorrecta"/>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <input id="cRespuesta" type="text" class="form-control" placeholder="respuesta" value="@Model.pregunta.TextoRespuesta"/>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <a class="btn-default" onclick="addOpcion(@Model.respuestasErroneas.Count);">Agregar respuesta</a>
-                                                </div>
-                                            </div>
-                                            <div id="respuestasIncorrectas">
-                                                @{var x = 0;}
-                                                @foreach (var respInc in Model.respuestasErroneas)
-                                                {
-                                                <div class="form-group">
-                                                    <a class="control-label col-md-2">Incorrecta</a>
-                                                    <div class="col-md-2">
-                                                        <input id="iTextoRespuesta-@x" type="text" class="form-control" placeholder="textoRespuesta" value="@respInc.Opcion" />
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <input id="iRespuesta-@x" type="text" class="form-control" placeholder="respuesta" value="@respInc.TextoRespuesta" />
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <textarea id="explicacion-@x" type="text" class="form-control" placeholder="explicación">@respInc.Explicacion</textarea>
-                                                    </div>
-                                                </div>
-                                                x++;
-                                                }
-                                            </div>
-                                        }
-                                        else if (Model.pregunta.Tipo == 2)
-                                        {
-
-                                            if (Model.pregunta.TextoRespuesta == "Verdadero")
-                                            {
-                                            <div class="form-group">
-                                                <a class="control-label col-md-2">Respuesta correcta</a>
-                                                <div class="col-md-4">
-                                                    <select name="respuestaCorrecta" id="respuestaCorrecta" class="form-control"> 
-                                                        <option value="0">Falso</option>
-                                                        <option selected value="1">Verdadero</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <a class="control-label col-md-2">Falso</a>
-                                                <div class="col-md-2">
-                                                    <input id="falsoTextoRespuesta" type="text" class="form-control" placeholder="textoRespuesta" value="@Model.respuestasErroneas.FirstOrDefault().Opcion"/>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <a class="control-label col-md-2">Verdadero</a>
-                                                <div class="col-md-2">
-                                                    <input id="verdaderoTextoRespuesta" type="text" class="form-control" placeholder="textoRespuesta" value="@Model.pregunta.RespuestaCorrecta"/>
-                                                </div>
-                                            </div>
-                                            }
-                                            else if (Model.pregunta.TextoRespuesta == "Falso")
-                                            {
-                                                <div class="form-group">
-                                                    <a class="control-label col-md-2">Respuesta correcta</a>
-                                                    <div class="col-md-4">
-                                                        <select name="respuestaCorrecta" id="respuestaCorrecta" class="form-control">
-                                                            <option selected value="0">Falso</option>
-                                                            <option value="1">Verdadero</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <a class="control-label col-md-2">Falso</a>
-                                                    <div class="col-md-2">
-                                                        <input id="falsoTextoRespuesta" type="text" class="form-control" placeholder="textoRespuesta" value="@Model.pregunta.RespuestaCorrecta" />
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <a class="control-label col-md-2">Verdadero</a>
-                                                    <div class="col-md-2">
-                                                        <input id="verdaderoTextoRespuesta" type="text" class="form-control" placeholder="textoRespuesta" value="@Model.respuestasErroneas.FirstOrDefault().Opcion" />
-                                                    </div>
-                                                </div>
-                                            }
-
-
-                                            <div class="form-group">
-                                                <a class="control-label col-md-2">Explicación</a>
-                                                <div class="col-md-4">
-                                                    <textarea id="vfExplicacion" class="form-control">@Model.respuestasErroneas.FirstOrDefault().Explicacion</textarea>
-                                                </div>
-                                            </div>
-                                        }
-                                    </div>
-
-
-
-
-
-
-                                    @*<hr />
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    @Html.HiddenFor(model => model.IDPregunta)
-
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.Texto, htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.EditorFor(model => model.Texto, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.Texto, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.Tipo, htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-1">
-                                            @Html.EditorFor(model => model.Tipo, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        Texto respuesta
-                                        <div class="col-md-10">
-                                            @Html.EditorFor(model => model.TextoRespuesta, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.TextoRespuesta, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        Opcion
-                                        <div class="col-md-1">
-                                            @Html.EditorFor(model => model.RespuestaCorrecta, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.RespuestaCorrecta, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.Dificultad, htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-1">
-                                            @Html.EditorFor(model => model.Dificultad, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.Dificultad, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        Creada por
-                                        <div class="col-md-2">
-                                            @Html.DropDownList("Id", null, htmlAttributes: new { @class = "form-control" })
-                                            @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="col-md-offset-2 col-md-10">
-                                            <input type="submit" value="Guardar" class="btn btn-success" />
-                                        </div>
-                                    </div>*@
-
-                                    <div class="form-group">
-                                        <div class="col-md-offset-2 col-md-10">
-                                            <input type="submit" value="Guardar" class="btn btn-success" onclick="SendInformation()" />
-                                        </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Temas:</label>
+                                    <div class="col-md-2">
+                                        @Html.DropDownList("ClaveTema", new SelectList(ViewBag.Temas, "ClaveTema", "NombreTema", ViewBag.SelectedTema), htmlAttributes: new { @class = "form-control" })
                                     </div>
                                 </div>
+
+                                @*<div class="form-group">
+            <label class="control-label col-md-2">Tema de la pregunta</label>
+            <div class="col-md-4">
+                <select class="ui fluid search dropdown form-control" name="tema" data-original="" id="tema">
+                    <!--<option value="">Tema</option>-->
+                    @if (ViewBag.Temas != null)
+                    {
+                        foreach (var item in ViewBag.Temas)
+                        {
+                            if (ViewBag.TemaSelected == item.ClaveTema)
+                            {
+                                <option selected value="@(item.ClaveTema)">@(item.NombreTema)</option>
+                            }
+                            else
+                            {
+                                <option value="@(item.ClaveTema)">@(item.NombreTema)</option>
+                            }
+
+                        }
+                    }
+                </select>
+            </div>
+        </div>*@
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.pregunta.Texto, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.pregunta.Texto, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.pregunta.Texto, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.pregunta.Tipo, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-4">
+                                        <select name="Tipo" id="Tipo" class="form-control" onchange="respuesta(this.value);">
+                                            <option value="0">-</option>
+                                            @if (Model.pregunta.Tipo == 1)
+                {
+                            <option selected value="1">Opcion multiple</option>
+                            <option value="2">V/F</option>
+}
+else if (Model.pregunta.Tipo == 2)
+{
+                            <option value="1">Opcion multiple</option>
+                            <option selected value="2">V/F</option>
+}
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.pregunta.Tipo, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.pregunta.Dificultad, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-4">
+                                        <select name="Dificultad" id="Dificultad" class="form-control">
+                                            @if (Model.pregunta.Dificultad == 1)
+                {
+                            <option selected value="1">Facil</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Intermedia</option>
+                            <option value="4">Avanzada</option>
+}
+else if (Model.pregunta.Dificultad == 2)
+{
+                            <option value="1">Facil</option>
+                            <option selected value="2">Regular</option>
+                            <option value="3">Intermedia</option>
+                            <option value="4">Avanzada</option>
+}
+else if (Model.pregunta.Dificultad == 3)
+{
+                            <option value="1">Facil</option>
+                            <option value="2">Regular</option>
+                            <option selected value="3">Intermedia</option>
+                            <option value="4">Avanzada</option>
+}
+else if (Model.pregunta.Dificultad == 4)
+{
+                            <option value="1">Facil</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Intermedia</option>
+                            <option selected value="4">Avanzada</option>
+}
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.pregunta.Dificultad, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Imagen URL</label>
+                                    <div class="col-md-10">
+                                        <input type="text" name="ImageFileURL" id="ImageFileURL" />
+                                    </div>
+                                </div>
+
+                                <!--Seccion de respuestas-->
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        Respuesta
+                                    </div>
+                                </div>
+
+                                <div id="opciones">
+                                    @if (Model.pregunta.Tipo == 1)
+        {
+                            <div class="form-group">
+                                <a class="control-label col-md-2">Correcta</a>
+                                <div class="col-md-2">
+                                    <input id="cTextoRespuesta" type="text" class="form-control" placeholder="textoRespuesta" value="@Model.pregunta.RespuestaCorrecta" />
+                                </div>
+                                <div class="col-md-4">
+                                    <input id="cRespuesta" type="text" class="form-control" placeholder="respuesta" value="@Model.pregunta.TextoRespuesta" />
+                                </div>
+                                <div class="col-md-2">
+                                    <a class="btn-default" onclick="addOpcion(@Model.respuestasErroneas.Count);">Agregar respuesta</a>
+                                </div>
+                            </div>
+                            <div id="respuestasIncorrectas">
+                                @{var x = 0;}
+                                @foreach (var respInc in Model.respuestasErroneas)
+    {
+                            <div class="form-group">
+                                <a class="control-label col-md-2">Incorrecta</a>
+                                <div class="col-md-2">
+                                    <input id="iTextoRespuesta-@x" type="text" class="form-control" placeholder="textoRespuesta" value="@respInc.Opcion" />
+                                </div>
+                                <div class="col-md-4">
+                                    <input id="iRespuesta-@x" type="text" class="form-control" placeholder="respuesta" value="@respInc.TextoRespuesta" />
+                                </div>
+                                <div class="col-md-4">
+                                    <textarea id="explicacion-@x" type="text" class="form-control" placeholder="explicación">@respInc.Explicacion</textarea>
+                                </div>
+                            </div>
+x++;
+}
+                            </div>
+}
+else if (Model.pregunta.Tipo == 2)
+{
+
+if (Model.pregunta.TextoRespuesta == "Verdadero")
+{
+                            <div class="form-group">
+                                <a class="control-label col-md-2">Respuesta correcta</a>
+                                <div class="col-md-4">
+                                    <select name="respuestaCorrecta" id="respuestaCorrecta" class="form-control">
+                                        <option value="0">Falso</option>
+                                        <option selected value="1">Verdadero</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <a class="control-label col-md-2">Falso</a>
+                                <div class="col-md-2">
+                                    <input id="falsoTextoRespuesta" type="text" class="form-control" placeholder="textoRespuesta" value="@Model.respuestasErroneas.FirstOrDefault().Opcion" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <a class="control-label col-md-2">Verdadero</a>
+                                <div class="col-md-2">
+                                    <input id="verdaderoTextoRespuesta" type="text" class="form-control" placeholder="textoRespuesta" value="@Model.pregunta.RespuestaCorrecta" />
+                                </div>
+                            </div>
+}
+else if (Model.pregunta.TextoRespuesta == "Falso")
+{
+                            <div class="form-group">
+                                <a class="control-label col-md-2">Respuesta correcta</a>
+                                <div class="col-md-4">
+                                    <select name="respuestaCorrecta" id="respuestaCorrecta" class="form-control">
+                                        <option selected value="0">Falso</option>
+                                        <option value="1">Verdadero</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <a class="control-label col-md-2">Falso</a>
+                                <div class="col-md-2">
+                                    <input id="falsoTextoRespuesta" type="text" class="form-control" placeholder="textoRespuesta" value="@Model.pregunta.RespuestaCorrecta" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <a class="control-label col-md-2">Verdadero</a>
+                                <div class="col-md-2">
+                                    <input id="verdaderoTextoRespuesta" type="text" class="form-control" placeholder="textoRespuesta" value="@Model.respuestasErroneas.FirstOrDefault().Opcion" />
+                                </div>
+                            </div>
+}
+
+
+                            <div class="form-group">
+                                <a class="control-label col-md-2">Explicación</a>
+                                <div class="col-md-4">
+                                    <textarea id="vfExplicacion" class="form-control">@Model.respuestasErroneas.FirstOrDefault().Explicacion</textarea>
+                                </div>
+                            </div>
+}
+                                </div>
+
+
+
+
+
+
+                                @*<hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.IDPregunta)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Texto, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Texto, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Texto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tipo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.Tipo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Texto respuesta
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TextoRespuesta, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TextoRespuesta, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Opcion
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.RespuestaCorrecta, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RespuestaCorrecta, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Dificultad, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.Dificultad, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Dificultad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Creada por
+            <div class="col-md-2">
+                @Html.DropDownList("Id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-success" />
+            </div>
+        </div>*@
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Guardar" class="btn btn-success" onclick="SendInformation()" />
+                                    </div>
+                                </div>
+                            </div>
                             
 
                             <div>
@@ -426,8 +434,12 @@
 
         //var id = parseInt(document.getElementById("Id").value);
         var idPregunta = parseInt(document.getElementById("idPregunta").value);
-        var tipo = parseInt(document.getElementById("Tipo").value);
-        //var tema = document.getElementById("tema").value;
+            var tipo = parseInt(document.getElementById("Tipo").value);
+
+            var temas = document.getElementById("ClaveTema");
+
+        var tema = temas.options[temas.selectedIndex].value;
+
         var texto = document.getElementById("pregunta_Texto").value;
         var dificultad = parseInt(document.getElementById("Dificultad").value);
         //var imageFile = document.getElementById("ImageFile").files[0].name;
@@ -473,7 +485,7 @@
             pregunta.explicacion = vfExplicacion;
         }
 
-        var postData = { pregunta: JSON.stringify(pregunta), tipo, dificultad, texto, imageFileURL, idPregunta };
+        var postData = { pregunta: JSON.stringify(pregunta), tipo, tema, dificultad, texto, imageFileURL, idPregunta };
 
 
 

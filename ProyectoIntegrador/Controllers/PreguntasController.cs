@@ -76,7 +76,10 @@ namespace ProyectoIntegrador.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            ViewBag.Id = new SelectList(db.Usuario, "Id", "Nombre");
+
+            int id = getLoggedInUserId();
+
+            ViewBag.Id = new SelectList(db.Usuario, "Id", "Nombre", id);
             ViewBag.Temas = getTemasFromController();
             return View();
         }
@@ -253,8 +256,19 @@ namespace ProyectoIntegrador.Controllers
                 return HttpNotFound();
             }
             ViewBag.Id = new SelectList(db.Usuario, "Id", "Nombre", pregunta.Id);
+
+
             ViewBag.Temas = getTemasFromController();
-            ViewBag.TemaSelected = pregunta.Tema.FirstOrDefault().NombreTema;
+
+            if (pregunta.Tema.FirstOrDefault() != null)
+            {
+                ViewBag.TemaSelected = pregunta.Tema.FirstOrDefault().NombreTema;
+            } else
+            {
+                ViewBag.TemaSelected = "";
+            }
+
+            
 
             List<RespuestasErroneas> respuestasErroneas = db.RespuestasErroneas.Where(a => a.ID_Pregunta == pregunta.IDPregunta).ToList();
 
@@ -269,7 +283,7 @@ namespace ProyectoIntegrador.Controllers
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Edit(string pregunta, int tipo, int dificultad, string texto, int idPregunta, string imageFileURL/*, string tema*/)
+        public ActionResult Edit(string pregunta, int tipo, int dificultad, string texto, int idPregunta, string tema, string imageFileURL/*, string tema*/)
         {
 
             bool valid = true;
@@ -282,7 +296,7 @@ namespace ProyectoIntegrador.Controllers
                 p.Texto = texto;
                 p.Tipo = (short)tipo;
                 //p.Id = id;
-                //p.Tema = db.Tema.Where(a => a.ClaveTema == tema).ToList();
+                p.Tema = db.Tema.Where(a => a.ClaveTema == tema).ToList();
                 p.Dificultad = (short)dificultad;
                 //p.Imagen = System.IO.File.ReadAllBytes("C: \\"+ImageFile);
                 if ((imageFileURL != null))
@@ -511,5 +525,18 @@ namespace ProyectoIntegrador.Controllers
 
             return false;
         }
+
+        public int getLoggedInUserId()
+        {
+            HttpCookie c = HttpContext.Request.Cookies.Get("i");
+            if (c != null)
+            {
+                return Int32.Parse(c.Value);
+            }
+
+            return -1;
+
+        }
+
     }
 }

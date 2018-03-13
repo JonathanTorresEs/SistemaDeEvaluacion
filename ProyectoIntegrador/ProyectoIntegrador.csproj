@@ -215,6 +215,7 @@
     <Compile Include="ViewModels\EditAlumno.cs" />
     <Compile Include="ViewModels\EditUsuario.cs" />
     <Compile Include="ViewModels\ExamenesContestadosVM.cs" />
+    <Compile Include="ViewModels\ExamenesDisponibles.cs" />
     <Compile Include="ViewModels\PreguntaRespuestasVM.cs" />
     <Compile Include="ViewModels\Resultados.cs" />
     <Compile Include="ViewModels\RetroExamenVM.cs" />

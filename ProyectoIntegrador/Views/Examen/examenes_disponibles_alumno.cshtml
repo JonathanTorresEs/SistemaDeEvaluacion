@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProyectoIntegrador.Models.Examen>
+﻿@model IEnumerable<ProyectoIntegrador.ViewModels.ExamenesDisponibles>
 
 @{
     Layout = null;
@@ -87,26 +87,29 @@
 
                                     <tr>
                                         <td class="text-center">
-                                            @Html.DisplayFor(modelItem => item.Nombre)
+                                            @Html.DisplayFor(modelItem => item.examen.Nombre)
                                         </td>
                                         <td class="text-center">
-                                            @Html.DisplayFor(modelItem => item.Descripcion)
+                                            @Html.DisplayFor(modelItem => item.examen.Descripcion)
                                         </td>
                                         <td class="text-center">
                                             <ul>
-                                                @foreach (var t in item.Tema)
+                                                @foreach (var t in item.examen.Tema)
                                                 {
                                                     <li>@Html.DisplayFor(modelItem => t.NombreTema)</li>
                                                 }
                                             </ul>
                                         </td>
                                         <td class="text-center">
-                                            @Html.DisplayFor(modelItem => item.FechaDeCreacion)
+                                            @Html.DisplayFor(modelItem => item.examen.FechaDeCreacion)
                                         </td>
                                         <td class="text-center">
-                                            <a href="../Examen/Contestar/@item.IDExamen" class=" text-success" data-toggle="tooltip" data-original-title="Contestar">
+                                            @if (!item.contestado)
+                                            {
+                                            <a href="../Examen/Contestar/@item.examen.IDExamen" class=" text-success" data-toggle="tooltip" data-original-title="Contestar">
                                                 <i class="fa fa-share"></i>
                                             </a>
+                                            }
                                         </td>
                                     </tr>
                                 }

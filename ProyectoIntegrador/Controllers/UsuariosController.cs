@@ -34,6 +34,11 @@ namespace ProyectoIntegrador.Controllers
                     c2.Value = "true";
                     c2.Expires = DateTime.Now.AddHours(1);
                     Response.Cookies.Add(c2);
+
+                    HttpCookie c3 = new HttpCookie("i");
+                    c3.Value = user.Id + "";
+                    c3.Expires = DateTime.Now.AddHours(1);
+                    Response.Cookies.Add(c3);
                     return RedirectToAction("Index");
                 }
                 else

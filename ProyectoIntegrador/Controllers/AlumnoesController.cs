@@ -229,9 +229,7 @@ namespace ProyectoIntegrador.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Alumno alumno = db.Alumno.Find(id);
-
-            AlumnoExamenes examenes = db.
+            Alumno alumno = db.Alumno.Include(m => m.Examen).Include(m => m.QuestionInExam).Where(m => m.Matricula == id).FirstOrDefault();
 
             db.Alumno.Remove(alumno);
             db.SaveChanges();

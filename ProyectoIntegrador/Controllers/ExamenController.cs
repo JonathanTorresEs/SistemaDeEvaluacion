@@ -41,7 +41,26 @@ namespace ProyectoIntegrador.Controllers
 
             HttpCookie c = HttpContext.Request.Cookies.Get("matricula");
             var examenes = db.Alumno.Where(a => a.Matricula == c.Value).FirstOrDefault().Examen;
-            return View(examenes);
+
+            List<ExamenesDisponibles> examenesDisponibles = new List<ExamenesDisponibles>();
+
+            foreach(var x in examenes)
+            {
+               var examenX = db.QuestionInExam.Where(m => m.IDExamen == x.IDExamen).ToList();
+
+                if(examenX.Count > 0)
+                {
+                    examenesDisponibles.Add(new ExamenesDisponibles() { examen = x, contestado = true });
+                } else
+                {
+                    examenesDisponibles.Add(new ExamenesDisponibles() { examen = x, contestado = false });
+                }
+
+            }
+
+
+
+            return View(examenesDisponibles);
         }
 
         public ActionResult view_user()

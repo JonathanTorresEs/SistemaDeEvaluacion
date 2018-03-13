@@ -140,7 +140,7 @@ namespace ProyectoIntegrador.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Tema tema = db.Tema.Find(id);
+            Tema tema = db.Tema.Include(m => m.Examen).Include(m => m.Pregunta).Where(m => m.ClaveTema == id).FirstOrDefault();
             db.Tema.Remove(tema);
             db.SaveChanges();
             return RedirectToAction("Index");
