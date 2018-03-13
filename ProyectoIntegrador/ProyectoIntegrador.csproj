@@ -212,6 +212,8 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AlumnoExamenes.cs" />
+    <Compile Include="ViewModels\EditAlumno.cs" />
+    <Compile Include="ViewModels\EditUsuario.cs" />
     <Compile Include="ViewModels\ExamenesContestadosVM.cs" />
     <Compile Include="ViewModels\PreguntaRespuestasVM.cs" />
     <Compile Include="ViewModels\Resultados.cs" />

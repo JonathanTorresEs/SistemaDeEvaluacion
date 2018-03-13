@@ -378,64 +378,64 @@ namespace ProyectoIntegrador.Controllers
         // POST: Examen/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDExamen,Nombre,Descripcion,CreationDate,Id")] Examen examen, List<String> temas)
-        {
-            ICollection<Tema> temasLista = new List<Tema>();
-            if (temas != null)
-            {
-                foreach (String tema in temas)
-                {
-                    temasLista.Add(db.Tema.FirstOrDefault(i => i.ClaveTema == tema));
-                }
-            }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "IDExamen,Nombre,Descripcion,CreationDate,Id")] Examen examen, List<String> temas)
+        //{
+        //    ICollection<Tema> temasLista = new List<Tema>();
+        //    if (temas != null)
+        //    {
+        //        foreach (String tema in temas)
+        //        {
+        //            temasLista.Add(db.Tema.FirstOrDefault(i => i.ClaveTema == tema));
+        //        }
+        //    }
 
-            if (ModelState.IsValid)
-            {
-                var prev = db.Examen.FirstOrDefault(i => i.IDExamen == examen.IDExamen);
+        //    if (ModelState.IsValid)
+        //    {
+        //        var prev = db.Examen.FirstOrDefault(i => i.IDExamen == examen.IDExamen);
                 
-                var added = new List<Tema>();
-                var removed = new List<Tema>();
-                var kept = new List<Tema>();
+        //        var added = new List<Tema>();
+        //        var removed = new List<Tema>();
+        //        var kept = new List<Tema>();
                 
                
-                //check if a new item was added else kept
-                foreach (Tema tema in temasLista) {
-                    if (!prev.Tema.Contains(tema))
-                    {
-                            added.Add(tema);
-                    }
-                    else
-                    {
-                        kept.Add(tema);
-                    }
-                }
+        //        //check if a new item was added else kept
+        //        foreach (Tema tema in temasLista) {
+        //            if (!prev.Tema.Contains(tema))
+        //            {
+        //                    added.Add(tema);
+        //            }
+        //            else
+        //            {
+        //                kept.Add(tema);
+        //            }
+        //        }
 
-                //check if an item was removed
-                foreach (Tema tema in prev.Tema) {
-                    if (!examen.Tema.Contains(tema))
-                    {
-                    removed.Add(tema);
-                    }
-                }
+        //        //check if an item was removed
+        //        foreach (Tema tema in prev.Tema) {
+        //            if (!examen.Tema.Contains(tema))
+        //            {
+        //            removed.Add(tema);
+        //            }
+        //        }
                 
 
             
-            // System.Diagnostics.Debug.WriteLine(examen.Tema);
-            prev.Tema = added.Concat(kept).ToList();
-                prev.Nombre = examen.Nombre;
-                prev.Descripcion = examen.Descripcion;
-                prev.Id = examen.Id;
-                //System.Diagnostics.Debug.WriteLine(temasLista);
-                //System.Diagnostics.Debug.WriteLine(examen.Tema);
-                //db.Entry(examen).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.Id = new SelectList(db.Usuario, "Id", "Nombre", examen.Id);
-            return View(examen);
-        }
+        //    // System.Diagnostics.Debug.WriteLine(examen.Tema);
+        //    prev.Tema = added.Concat(kept).ToList();
+        //        prev.Nombre = examen.Nombre;
+        //        prev.Descripcion = examen.Descripcion;
+        //        prev.Id = examen.Id;
+        //        //System.Diagnostics.Debug.WriteLine(temasLista);
+        //        //System.Diagnostics.Debug.WriteLine(examen.Tema);
+        //        //db.Entry(examen).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    ViewBag.Id = new SelectList(db.Usuario, "Id", "Nombre", examen.Id);
+        //    return View(examen);
+        //}
 
         public ActionResult ListaResultados()
         {
@@ -507,30 +507,30 @@ namespace ProyectoIntegrador.Controllers
         }
 
         // GET: Examen/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Examen examen = db.Examen.Find(id);
-            if (examen == null)
-            {
-                return HttpNotFound();
-            }
-            return View(examen);
-        }
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Examen examen = db.Examen.Find(id);
+        //    if (examen == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(examen);
+        //}
 
-        // POST: Examen/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Examen examen = db.Examen.Find(id);
-            db.Examen.Remove(examen);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //// POST: Examen/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    Examen examen = db.Examen.Find(id);
+        //    db.Examen.Remove(examen);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         protected override void Dispose(bool disposing)
         {

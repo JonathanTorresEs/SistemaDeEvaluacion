@@ -133,12 +133,14 @@ namespace ProyectoIntegrador.Controllers
                 var sha1 = new SHA1CryptoServiceProvider();
                 var sha1data = sha1.ComputeHash(new System.IO.MemoryStream(Encoding.UTF8.GetBytes(password)));
                 alumno.PasswordHash = sha1data;
+
                 db.Alumno.Add(alumno);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.Carrera = new SelectList(db.Carrera, "Siglas", "NombreLargo", alumno.Carrera);
+
             return View(alumno);
         }
 
@@ -150,12 +152,22 @@ namespace ProyectoIntegrador.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Alumno alumno = db.Alumno.Find(id);
+
             if (alumno == null)
             {
                 return HttpNotFound();
             }
             ViewBag.Carrera = new SelectList(db.Carrera, "Siglas", "NombreLargo", alumno.Carrera);
-            return View(alumno);
+
+            EditAlumno editAlumno = new EditAlumno();
+            editAlumno.Matricula = alumno.Matricula;
+            editAlumno.Nombre = alumno.Nombre;
+            editAlumno.ApellidoPaterno = alumno.ApellidoPaterno;
+            editAlumno.ApellidoMaterno = alumno.ApellidoMaterno;
+            editAlumno.Carrera = alumno.Carrera;
+            editAlumno.CorreoElectronico = alumno.CorreoElectronico;
+
+            return View(editAlumno);
         }
 
         // POST: Alumnoes/Edit/5
@@ -163,11 +175,33 @@ namespace ProyectoIntegrador.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Matricula,Nombre,ApellidoPaterno,ApellidoMaterno,Carrera,CorreoElectronico,PasswordHash")] Alumno alumno)
+        public ActionResult Edit([Bind(Include = "Matricula,Nombre,ApellidoPaterno,ApellidoMaterno,Carrera,CorreoElectronico")] EditAlumno editAlumno, String password)
         {
+
+            var alumno = db.Alumno.Where(m => m.Matricula == editAlumno.Matricula).FirstOrDefault();
+
             if (ModelState.IsValid)
             {
+
+                alumno.Matricula = editAlumno.Matricula;
+                alumno.Nombre = editAlumno.Nombre;
+                alumno.ApellidoPaterno = editAlumno.ApellidoPaterno;
+                alumno.ApellidoMaterno = editAlumno.ApellidoMaterno;
+                alumno.Carrera = editAlumno.Carrera;
+                alumno.CorreoElectronico = editAlumno.CorreoElectronico;
+
+                //If password is not null, set it as new password
+                if (password != "")
+                {
+                    var sha1 = new SHA1CryptoServiceProvider();
+                    var sha1data = sha1.ComputeHash(new System.IO.MemoryStream(Encoding.UTF8.GetBytes(password)));
+                    alumno.PasswordHash = sha1data;
+
+                } 
+
                 db.Entry(alumno).State = EntityState.Modified;
+
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -196,6 +230,9 @@ namespace ProyectoIntegrador.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             Alumno alumno = db.Alumno.Find(id);
+
+            AlumnoExamenes examenes = db.
+
             db.Alumno.Remove(alumno);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -209,5 +246,6 @@ namespace ProyectoIntegrador.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }

@@ -10,6 +10,7 @@ using ProyectoIntegrador.Models;
 using System.Text;
 using System.Security.Cryptography;
 using ProyectoIntegrador.Controllers;
+using ProyectoIntegrador.ViewModels;
 
 namespace ProyectoIntegrador.Controllers
 {
@@ -140,6 +141,16 @@ namespace ProyectoIntegrador.Controllers
             {
                 return HttpNotFound();
             }
+
+
+            EditUsuario editUsuario = new EditUsuario();
+
+            editUsuario.Id = usuario.Id;
+            editUsuario.Nombre = usuario.Nombre;
+            editUsuario.ApellidoPaterno = usuario.ApellidoPaterno;
+            editUsuario.ApellidoMaterno = usuario.ApellidoMaterno;
+            editUsuario.CorreoElectronico = usuario.CorreoElectronico;
+
             return View(usuario);
         }
 
@@ -148,14 +159,33 @@ namespace ProyectoIntegrador.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nombre,ApellidoPaterno,ApellidoMaterno,CorreoElectronico,PasswordHash")] Usuario usuario)
+        public ActionResult Edit([Bind(Include = "Id,Nombre,ApellidoPaterno,ApellidoMaterno,CorreoElectronico,PasswordHash")] EditUsuario editUsuario, String password)
         {
+            var usuario = db.Usuario.Where(m => m.Id == editUsuario.Id).FirstOrDefault();
+
             if (!IsAuthorized())
             {
                 return RedirectToAction("Index", "Home");
             }
             if (ModelState.IsValid)
             {
+
+                usuario.Id = editUsuario.Id;
+                usuario.Nombre = editUsuario.Nombre;
+                usuario.ApellidoPaterno = editUsuario.ApellidoPaterno;
+                usuario.ApellidoMaterno = editUsuario.ApellidoMaterno;
+                usuario.CorreoElectronico = editUsuario.CorreoElectronico;
+
+                //If password is not null, set it as new password
+                if (password != "")
+                {
+                    var sha1 = new SHA1CryptoServiceProvider();
+                    var sha1data = sha1.ComputeHash(new System.IO.MemoryStream(Encoding.UTF8.GetBytes(password)));
+                    usuario.PasswordHash = sha1data;
+
+                }
+
+
                 db.Entry(usuario).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
