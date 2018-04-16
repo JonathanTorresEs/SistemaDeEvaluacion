@@ -97,7 +97,8 @@ namespace ProyectoIntegrador.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDExamen,Nombre,Descripcion,FechaDeCreacion,Id")] Examen examen, List<String> temas)
+        //Change 15/04/2018 -> used to have "FechaDeCreacion," before "Id"
+        public ActionResult Create([Bind(Include = "IDExamen,Nombre,Descripcion,Id")] Examen examen, List<String> temas)
         {
             ICollection<Tema> temasLista = new List<Tema>();
             foreach(String tema in temas)
@@ -107,6 +108,8 @@ namespace ProyectoIntegrador.Controllers
             }
             if (ModelState.IsValid)
             {
+                examen.FechaDeCreacion = DateTime.Now;
+
                 examen.Tema = temasLista;
                 db.Examen.Add(examen);
                 

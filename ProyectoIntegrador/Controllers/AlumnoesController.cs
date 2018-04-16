@@ -128,20 +128,27 @@ namespace ProyectoIntegrador.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Matricula,Nombre,ApellidoPaterno,ApellidoMaterno,Carrera,CorreoElectronico,PasswordHash")] Alumno alumno, String password)
         {
-            if (ModelState.IsValid)
-            {
-                var sha1 = new SHA1CryptoServiceProvider();
-                var sha1data = sha1.ComputeHash(new System.IO.MemoryStream(Encoding.UTF8.GetBytes(password)));
-                alumno.PasswordHash = sha1data;
+            
+                if (ModelState.IsValid)
+                {
+                    var sha1 = new SHA1CryptoServiceProvider();
+                    var sha1data = sha1.ComputeHash(new System.IO.MemoryStream(Encoding.UTF8.GetBytes(password)));
+                    alumno.PasswordHash = sha1data;
 
-                db.Alumno.Add(alumno);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                    if (alumno.Matricula[0].Equals('A'))
+                    {
+                        db.Alumno.Add(alumno);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
 
-            ViewBag.Carrera = new SelectList(db.Carrera, "Siglas", "NombreLargo", alumno.Carrera);
+                    
+                }
+             
+                ViewBag.Carrera = new SelectList(db.Carrera, "Siglas", "NombreLargo", alumno.Carrera);
 
-            return View(alumno);
+                return View(alumno);
+            
         }
 
         // GET: Alumnoes/Edit/5

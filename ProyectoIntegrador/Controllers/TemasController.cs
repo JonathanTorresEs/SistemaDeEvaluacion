@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using ProyectoIntegrador.Models;
@@ -73,8 +75,20 @@ namespace ProyectoIntegrador.Controllers
         {
             if (ModelState.IsValid)
             {
+                string parsedClave = RemoveSpecialCharacters(tema.ClaveTema);
+                tema.ClaveTema = parsedClave;
+
                 db.Tema.Add(tema);
-                db.SaveChanges();
+
+                try
+                {
+                    db.SaveChanges();
+                } catch (DbUpdateException ex)
+                {
+                    return View(tema);
+                }
+
+                
                 return RedirectToAction("Index");
             }
 
@@ -168,5 +182,20 @@ namespace ProyectoIntegrador.Controllers
 
             return false;
         }
+
+        public string RemoveSpecialCharacters(string str)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (char c in str)
+            {
+                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+                {
+                    sb.Append(c);
+                }
+            }
+            return sb.ToString();
+        }
+
+
     }
 }
