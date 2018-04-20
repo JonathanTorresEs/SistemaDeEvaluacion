@@ -9,6 +9,7 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using ProyectoIntegrador.Models;
+using ProyectoIntegrador.ViewModels;
 
 namespace ProyectoIntegrador.Controllers
 {
@@ -85,7 +86,10 @@ namespace ProyectoIntegrador.Controllers
                     db.SaveChanges();
                 } catch (DbUpdateException ex)
                 {
-                    return View(tema);
+                    TemaDuplicateKey vm = new TemaDuplicateKey();
+                    vm.tema = tema;
+                    vm.error = "La llave insertada ya existe en la base de datos. Ingresar llave diferente.";
+                    return View("~/Views/Temas/CreateError.cshtml", vm);
                 }
 
                 
