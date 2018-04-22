@@ -10,6 +10,7 @@ using ProyectoIntegrador.Models;
 using Newtonsoft.Json.Linq;
 using System.Data.SqlClient;
 using ProyectoIntegrador.ViewModels;
+using System.Data.Entity.Infrastructure;
 
 namespace ProyectoIntegrador.Controllers
 {
@@ -44,11 +45,11 @@ namespace ProyectoIntegrador.Controllers
 
             List<ExamenesDisponibles> examenesDisponibles = new List<ExamenesDisponibles>();
 
-            foreach(var x in examenes)
+            foreach (var x in examenes)
             {
-               var examenX = db.QuestionInExam.Where(m => m.IDExamen == x.IDExamen).ToList();
+                var examenX = db.QuestionInExam.Where(m => m.IDExamen == x.IDExamen).ToList();
 
-                if(examenX.Count > 0)
+                if (examenX.Count > 0)
                 {
                     examenesDisponibles.Add(new ExamenesDisponibles() { examen = x, contestado = true });
                 } else
@@ -101,21 +102,30 @@ namespace ProyectoIntegrador.Controllers
         public ActionResult Create([Bind(Include = "IDExamen,Nombre,Descripcion,Id")] Examen examen, List<String> temas)
         {
             ICollection<Tema> temasLista = new List<Tema>();
-            foreach(String tema in temas)
-            {
-                temasLista.Add(db.Tema.FirstOrDefault(i => i.ClaveTema == tema));
 
-            }
-            if (ModelState.IsValid)
-            {
-                examen.FechaDeCreacion = DateTime.Now;
+           
+                if (temas != null)
+                {
+                foreach (String tema in temas)
+                                {
+                                    temasLista.Add(db.Tema.FirstOrDefault(i => i.ClaveTema == tema));
+                                }
 
-                examen.Tema = temasLista;
-                db.Examen.Add(examen);
-                
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                    if (ModelState.IsValid)
+                    {
+                        examen.FechaDeCreacion = DateTime.Now;
+                        examen.Tema = temasLista;
+                        db.Examen.Add(examen);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                } else
+                {
+                    ExamenCreateError vm = new ExamenCreateError();
+                    vm.examen = examen;
+                    vm.error = "El tema del examen no puede ser nulo";
+                    return View("~/Views/Examen/CreateError.cshtml", vm);
+                }
 
             ViewBag.Id = new SelectList(db.Usuario, "Id", "Nombre", examen.Id);
             return View(examen);

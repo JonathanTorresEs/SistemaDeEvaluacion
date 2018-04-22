@@ -215,6 +215,7 @@
     <Compile Include="ViewModels\AlumnoExamenes.cs" />
     <Compile Include="ViewModels\EditAlumno.cs" />
     <Compile Include="ViewModels\EditUsuario.cs" />
+    <Compile Include="ViewModels\ExamenCreateError.cs" />
     <Compile Include="ViewModels\ExamenesContestadosVM.cs" />
     <Compile Include="ViewModels\ExamenesDisponibles.cs" />
     <Compile Include="ViewModels\PreguntaRespuestasVM.cs" />
@@ -613,6 +614,7 @@
     <Content Include="Views\Examen\VerRetro.cshtml" />
     <Content Include="Views\Examen\ListaResultados.cshtml" />
     <Content Include="Views\Alumnoes\CreateError.cshtml" />
+    <Content Include="Views\Examen\CreateError.cshtml" />
     <None Include="Views\Partial\footer.cshtml" />
     <None Include="Views\Partial\header.cshtml" />
     <Content Include="Scripts\sidebar-nav.min.js" />

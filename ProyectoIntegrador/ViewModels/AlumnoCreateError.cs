@@ -13,5 +13,6 @@ namespace ProyectoIntegrador.ViewModels
         public Alumno alumno { get; set; }
         public string error { get; set; }
         public IEnumerable<SelectListItem> carrera { get; set; }
+        public string carreraKey { get; set; }
     }
 }

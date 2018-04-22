@@ -128,7 +128,7 @@ namespace ProyectoIntegrador.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Matricula,Nombre,ApellidoPaterno,ApellidoMaterno,Carrera,CorreoElectronico,PasswordHash")] Alumno alumno, String password, String passwordConfirm)
+        public ActionResult Create([Bind(Include = "Matricula,Nombre,ApellidoPaterno,ApellidoMaterno,Carrera,CorreoElectronico,PasswordHash")] Alumno alumno, String password, String passwordConfirm, String carreraKey)
         {
             
                 if (ModelState.IsValid)
@@ -137,21 +137,32 @@ namespace ProyectoIntegrador.Controllers
                     var sha1data = sha1.ComputeHash(new System.IO.MemoryStream(Encoding.UTF8.GetBytes(password)));
                     alumno.PasswordHash = sha1data;
 
+                if(carreraKey != null)
+                {
+                    alumno.Carrera = carreraKey;
+                }
+
                     if(!password.Equals(passwordConfirm))
                 {
-                    AlumnoCreateError vm = new AlumnoCreateError();
-                    vm.alumno = alumno;
-                    vm.error = "Las contraseñas no coinciden.";
-                    vm.carrera = new SelectList(db.Carrera, "Siglas", "NombreLargo", alumno.Carrera);
+                    AlumnoCreateError vm = new AlumnoCreateError
+                    {
+                        alumno = alumno,
+                        error = "Las contraseñas no coinciden.",
+                        carrera = new SelectList(db.Carrera, "Siglas", "NombreLargo", alumno.Carrera),
+                        carreraKey = alumno.Carrera
+                    };
                     return View("~/Views/Alumnoes/CreateError.cshtml", vm);
                 }
 
                     if (!alumno.Matricula[0].Equals('A'))
                     {
-                    AlumnoCreateError vm = new AlumnoCreateError();
-                    vm.alumno = alumno;
-                    vm.error = "Por favor ingrese una matrícula que inicie con A y que no exceda 9 caracteres.";
-                    vm.carrera = new SelectList(db.Carrera, "Siglas", "NombreLargo", alumno.Carrera);
+                    AlumnoCreateError vm = new AlumnoCreateError
+                    {
+                        alumno = alumno,
+                        error = "Por favor ingrese una matrícula que inicie con A y que no exceda 9 caracteres.",
+                        carrera = new SelectList(db.Carrera, "Siglas", "NombreLargo", alumno.Carrera),
+                        carreraKey = alumno.Carrera
+                    };
                     //ViewBag.Carrera = new SelectList(db.Carrera, "Siglas", "NombreLargo", alumno.Carrera);
                     return View("~/Views/Alumnoes/CreateError.cshtml", vm);
                     } 
